@@ -1,0 +1,84 @@
+﻿<root>
+  <add name="IsZkTitle" value="true" />
+  <add name="systemName" value="" />
+  <add name="Language" value="pt" />
+  <add name="IsOpenListen" value="yes" />
+  <add name="password" value="admin" />
+  <add name="IsListen" value="true" />
+  <add name="data" value="Access" />
+  <add name="ConnectionString" value="" />
+  
+  <chs>
+    <add name="chs" value="中文" />
+    <add name="en" value="英文" />
+    <add name="spa" value="西班牙文" />
+    <add name="pt" value="葡萄牙文" />
+    <add name="ara" value="阿拉伯文" />
+    <add name="jap" value="日文" />
+    <add name="fr" value="法文" />-->
+  </chs>
+  <en>
+    <add name="chs" value="Chinese" />
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+    <add name="ara" value="Arabic" />
+    <add name="jap" value="Japanese" />
+    <add name="fr" value="French" />-->
+  </en>
+  <spa>
+    <add name="chs" value="Chinese" />
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+    <add name="ara" value="Arabic" />
+    <add name="jap" value="Japanese" />
+    <add name="fr" value="French" />-->
+  </spa>
+  <jap>
+    <add name="chs" value="Chinese" />
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+    <add name="ara" value="Arabic" />
+    <add name="jap" value="Japanese" />
+    <add name="fr" value="French" />-->
+  </jap>
+  <vn>
+    <add name="chs" value="Chinese" />
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+    <add name="ara" value="Arabic" />
+    <add name="jap" value="Japanese" />
+    <add name="fr" value="French" />-->
+  </vn>
+  <fr>
+    <add name="chs" value="Chinese" />
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+    <add name="ara" value="Arabic" />
+    <add name="jap" value="Japanese" />
+    <add name="fr" value="French" />-->
+  </fr>
+  <ara>
+    <add name="chs" value="Chinese" />
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+    <add name="ara" value="Arabic" />
+    <add name="jap" value="Japanese" />
+    <add name="fr" value="French" />-->
+  </ara>
+  <pt>
+    <add name="chs" value="Chinese" />
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+    <add name="ara" value="Arabic" />
+    <add name="jap" value="Japanese" />
+    <add name="fr" value="French" />-->
+  </pt>
+
+</root>

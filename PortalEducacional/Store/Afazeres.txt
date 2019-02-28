@@ -1,0 +1,38 @@
+Loja Virtual
+
+- Authentication
+  - Criação de usuário e senha para acesso
+  - Vincular usuário a um pedido
+  - Vincular usuário ao carrinho de compras
+  - Adicionar créditos para compras
+  - Vinculo de usuário com responsável do banco do portal
+  
+- Lista de produtos
+  - Definição do produto
+  - Categorizar os produtos
+  - Filtrar os produtos
+  - Filtro automático relacionado ao filho do responsável
+  - Paginação dos itens
+  - Enviar itens para carrinho
+   
+- Carrinho de compras
+  - Recebe informações da lista de objetos selecionados
+  - Chama método que calcula frete dos produtos
+  - É salvo a qualquer alteração dentro da área
+  - Salva estado para futuras visitas
+  - Possui opção para adicionar mais produtos
+  - Possui opção para remover produtos
+  - Opção continuar comprando ou finalizar compra.
+  
+- Pedido
+  - Relação com carrinho de compras e pedido enviado a escola
+  - Garantir forma de pagamento
+  - Valores já atualizados não podem ser alterados
+  - Vincular Pedido aos dados de usuário 
+
+  
+- Frete
+
+- Metodo de pagamento
+
+- DashBoard Aministrativo

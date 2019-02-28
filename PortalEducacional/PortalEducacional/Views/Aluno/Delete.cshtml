@@ -1,0 +1,72 @@
+﻿
+@model PortalEducacional.Models.Aluno
+@{
+    ViewData["Title"] = "Deletar";
+}
+<hr />
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-mortar-board"></i>Deletar Aluno</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Aluno</a></li>
+            <li><a href="#" class="color-primary">Deletar Aluno</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <form asp-action="Delete">
+            <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+                <input type="hidden" asp-for="AlunoID" />
+                <a asp-action="Index" class="btn btn-default">Cancelar</a>
+                <input type="submit" value="Deletar" id="btnSalvar" class="btn btn-danger" />
+            </div>
+            <div class="fix"></div>
+            <div class="divisor">
+                <div class="divdentor"></div>
+            </div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Ra)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Ra)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Ativo)
+                </dt>
+                <dd>
+                    @if (Model.Ativo)
+                    {
+                        @Html.DisplayName("ATIVO")
+                    }
+                    else
+                    {
+                        @Html.DisplayName("INATIVO")
+                    }
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Escola)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Escola.Nome)
+                </dd>
+            </dl>
+
+        </form>
+    </div>
+</div>
+<div class="inProgress" id="inProgress" style="display: none;">
+</div>
+<div class="inProgress2" id="inProgress2" style="display: none;">
+    <span class="color-primary" style="font-size: 25px"><i class="fa fa-spinner fa-spin"></i></span>
+    <br />
+    <span class="color-primary">Aguarde...</span>
+</div>
+<div id="result"></div>

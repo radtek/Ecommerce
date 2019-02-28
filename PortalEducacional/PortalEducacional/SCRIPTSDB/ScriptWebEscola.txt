@@ -1,0 +1,73 @@
+﻿--- ENDERECO
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('12242-800', 'Av. Barão do Rio Branco', 'Jardim Esplanada II', '980', '', 560)
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('12912-160', 'Av. Pe. Egídio José Porto', 'Jardim Anchieta', '100', '', 87)
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('12712-550', 'Rua José Cipriano Sobrinho', 'Retiro da Mantiqueira', '37', '', 150)
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('07020-290', 'Rua Ananias José de Vasconcelos', 'Gopoúva', '66', '', 215)
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('12322-050', 'Av. Edmundo de Souza', 'Jardim América', '110', '', 280)
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('12603-020', 'Av. Marechal Teixeira Lott', 'Vila Nunes', '1080', '', 309)
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('08730-120', 'Rua Eng. Eugênio Motta', 'Centro', '184', '', 346)
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('12233-690', 'Rua Manoel Fiel Filho', 'Bosque dos Eucaliptos', '300', '', 560)
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('12233-690', 'Rua Manoel Fiel Filho', 'Bosque dos Eucaliptos', '300', '', 560)
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('12120-000', 'Av. Luiz Gonzaga das Neves', 'Centro', '2641', '', 616)
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('12120-000', 'Av. Luiz Gonzaga das Neves', 'Centro', '2641', '', 616)
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('07056-110', 'Rua Vicente Melro', 'Jardim Vila Galvão', '1072', '', 215)
+INSERT INTO ENDERECO(CEP, Logradouro, Bairro, Numero, Complemento, CidadeId) VALUES('11672-040', 'Rua Francisco Garrido', 'Pontal de Santa Marina', '860', '', 121)
+
+--- ESCOLA
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('43586122002320',getdate(),'naotem@hotmail.com','Missão Paulista do Vale','','1',(Select top 1 EnderecoId from Endereco where CEP ='12242-800'))
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('43586122007208',getdate(),'capb@paulistadovale.org.br','Colégio Adventista de Bragança Paulista','(11) 2490-1000','1',(Select top 1 EnderecoId from Endereco where CEP ='12912-160'))
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('43586122013011',getdate(),'cac@ucb.org.br','Colégio Adventista de Cruzeiro','(12)3141-7000','1',(Select top 1 EnderecoId from Endereco where CEP ='12712-550'))
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('43586122005426',getdate(),'coag@ucb.org.br','Colégio Adventista de Gopoúva','(11)2087-7300','1',(Select top 1 EnderecoId from Endereco where CEP ='07020-290'))
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('43586122006902',getdate(),'cajac@ucb.org.br','Colégio Adventista de Jacareí','12-39540600','1',(Select top 1 EnderecoId from Endereco where CEP ='12322-050'))
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('43586122005000',getdate(),'cal@paulistadovale.org.br','Colégio Adventista de Lorena','12- 3152-4114','1',(Select top 1 EnderecoId from Endereco where CEP ='12603-020'))
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('43586122005507',getdate(),'camoc@ucb.org.br','Colégio Adventista de Mogi das Cruzes','(11) 4761-5270','1',(Select top 1 EnderecoId from Endereco where CEP ='08730-120'))
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('43586122010691',getdate(),'casjc@ucb.org.br','Colégio Adventista de São José dos Campos','(12)3919-2200','1',(Select top 1 EnderecoId from Endereco where CEP ='12233-690'))
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('00000000000000',getdate(),'Casjc@mpv.org.br','Academia Adventista de São José dos Campos','','1',(Select top 1 EnderecoId from Endereco where CEP ='12233-690'))
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('43586122012040',getdate(),'catt@ucb.org.br','Colégio Adventista de Taubaté -Tremembé','123607-5200','1',(Select top 1 EnderecoId from Endereco where CEP ='12120-000'))
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('43586122012040',getdate(),'Cat@mpv.org.br','Academia Adventista de Tremembé-Taubaté','','1',(Select top 1 EnderecoId from Endereco where CEP ='12120-000'))
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('43586122004101',getdate(),'cavg@ucb.org.br','Colégio Adventista de Vila Galvão','(11) 2086-4455','1',(Select top 1 EnderecoId from Endereco where CEP ='07056-110'))
+INSERT INTO ESCOLA (CNPJ, DataCadastro, Email, Nome, Telefone, Ativo, EnderecoId) VALUES('43586122019800',getdate(),'cacg@ucb.org.br','Escola Adventista de Caraguatatuba','(12)3888-1894','1',(Select top 1 EnderecoId from Endereco where CEP ='11672-040'))
+
+
+--SERIE
+SELECT 'INSERT INTO SERIE (DESCRICAO) VALUES(''' + MIN(DESCRICAO) + ''')'
+FROM Escola_Serie
+WHERE DESCRICAO <> ''
+GROUP BY COD_SERIE
+ORDER BY COD_SERIE
+
+
+--RESPONSAVEL
+SELECT 'INSERT INTO RESPONSAVEL(DataCadastro,Email,Nome,Telefone,CPF) VALUES(GETDATE(), '''+ ISNULL(E_Mail, '') + ''', ''' + ISNULL(REPLACE(nome, '''', ''''''),'') + ''', '''', ''' + ISNULL(REPLACE(REPLACE(RIGHT(CPF,11),'.',''),'-',''), '') + ''')'
+FROM Responsavel
+WHERE CPF <> ''
+
+SELECT * FROM Responsavel
+
+
+--ALUNO
+INSERT INTO ALUNO (NOME, RA, DataNascimento, TipoGenero, Ativo, ResponsavelID, ResposavelFinanceiroID, ResposavelLegalID, SerieID, EscolaID) VALUES('Esdras de Camargo Ribeiro','0000000',Convert(datetime,'15/07/1987', 103),'1','1','null','null','null','null',(Select EscolaId from Escola where CNPJ ='43586122013011'))
+
+
+SELECT 'INSERT INTO ALUNO (NOME, RA, DataNascimento, TipoGenero, Ativo, ResposavelFinanceiroID, ResposavelLegalID, SerieID, EscolaID) 
+VALUES(' + '''' + REPLACE(a.Nome, '''', '''''') + '''' + ',' + 
+'''' + isnull(RA, '0000000') + '''' + ',' + 
+'Convert(datetime,' + '''' + Convert(varchar, a.data_nascimento, 103) + '''' + ', 103)' + ',' + 
+'''' + CASE WHEN a.sexo = 'M' THEN '1' ELSE '0' END  + '''' + ',' + 
+'''' + CASE WHEN data_desligamento is null THEN '0' ELSE '1' END + '''' + ',' + 
+'(Select top 1 ResponsavelId from Responsavel where cpf =' + '''' + ISNULL(REPLACE(REPLACE(RL.CPF,'.',''),'-',''), '') + '''' + ')' + ',' +
+'(Select top 1 ResponsavelId from Responsavel where cpf =' + '''' + ISNULL(REPLACE(REPLACE(RF.CPF,'.',''),'-',''), '') + '''' + ')' + ',' +
+'(Select top 1 SerieId from Serie where Descricao =' + '''' + s.serie + '''' + ')' + ',' +
+'(Select top 1 EscolaId from Escola where CNPJ =' + '''' + isnull(REPLACE(REPLACE(REPLACE(e.CGC, '.', ''), '/', ''), '-', ''), '00000000000000') + '''' + ')' + ')' 
+FROM Aluno a
+	INNER JOIN Escola e on e.cod_escola = a.cod_escola
+	INNER JOIN v_bd_alunos_novos v on a.cod_aluno = v.cod_aluno
+	INNER JOIN (SELECT cod_serie, MIN(DESCRICAO) serie FROM Escola_Serie WHERE DESCRICAO <> '' GROUP BY COD_SERIE) s on v.cod_serie = s.cod_serie
+	LEFT OUTER JOIN Responsavel RL ON A.CPF_resp_legal = RL.CPF
+	LEFT OUTER JOIN Responsavel RF ON A.CPF_resp_financeiro = RF.CPF
+WHERE ANO = 2018
+and REPLACE(RL.CPF,'-','') <> ''
+and REPLACE(RF.CPF,'-','') <> ''
+
+
+

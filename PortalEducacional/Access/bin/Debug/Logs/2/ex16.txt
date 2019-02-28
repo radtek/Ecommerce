@@ -1,0 +1,2 @@
+﻿02/04/2018 16:49:57 Error On Update DataBase：'C:\Program Files (x86)\Automatiza\SoapAdmin3.5\access.mdb' não é um caminho válido. Certifique-se de que o nome do caminho esteja escrito corretamente e que você esteja conectado ao servidor no qual o arquivo reside.
+02/04/2018 16:54:29 system stop 

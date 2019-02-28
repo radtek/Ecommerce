@@ -1,0 +1,208 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <UserSecretsId>aspnet-PortalEducacional-97EF0DE1-7E33-415F-84FD-2B93EF44A226</UserSecretsId>
+    <Configurations>Debug;Release;Paulo</Configurations>
+    <ApplicationIcon>wwwroot\images\Logo\epta.ico</ApplicationIcon>
+    <StartupObject />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\images\Alunos\**" />
+    <Content Remove="wwwroot\images\Alunos\**" />
+    <EmbeddedResource Remove="wwwroot\images\Alunos\**" />
+    <None Remove="wwwroot\images\Alunos\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20180430195912_inicial.cs" />
+    <Compile Remove="Migrations\20180430195912_inicial.Designer.cs" />
+    <Compile Remove="Models\Profissional_old.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <COMReference Include="ZKFPEngXControl.dll">
+      <Guid>d95cb779-00cb-4b49-97b9-9f0b61cab3c1</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+    </COMReference>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="AdminLTE" Version="2.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.ViewCompilation" Version="2.0.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Account\AccessDenied.cshtml" />
+    <None Include="Views\Account\ConfirmEmail.cshtml" />
+    <None Include="Views\Account\ExternalLogin.cshtml" />
+    <None Include="Views\Account\ForgotPassword.cshtml" />
+    <None Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <None Include="Views\Account\Lockout.cshtml" />
+    <None Include="Views\Account\Login.cshtml" />
+    <None Include="Views\Account\LoginWith2fa.cshtml" />
+    <None Include="Views\Account\LoginWithRecoveryCode.cshtml" />
+    <None Include="Views\Account\Register.cshtml" />
+    <None Include="Views\Account\ResetPassword.cshtml" />
+    <None Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <None Include="Views\Account\SignedOut.cshtml" />
+    <None Include="Views\Aluno\Create.cshtml" />
+    <None Include="Views\Aluno\Delete.cshtml" />
+    <None Include="Views\Aluno\Details.cshtml" />
+    <None Include="Views\Aluno\Edit.cshtml" />
+    <None Include="Views\Aluno\Index.cshtml" />
+    <None Include="Views\ApplicationUser\Create.cshtml" />
+    <None Include="Views\ApplicationUser\Delete.cshtml" />
+    <None Include="Views\ApplicationUser\Edit.cshtml" />
+    <None Include="Views\ApplicationUser\Index.cshtml" />
+    <None Include="Views\Cantina\Create.cshtml" />
+    <None Include="Views\Cantina\FechamentoCaixa.cshtml" />
+    <None Include="Views\Cantina\Index.cshtml" />
+    <None Include="Views\Cantina\VendasDia.cshtml" />
+    <None Include="Views\Cargo\Create.cshtml" />
+    <None Include="Views\Cargo\Delete.cshtml" />
+    <None Include="Views\Cargo\Details.cshtml" />
+    <None Include="Views\Cargo\Edit.cshtml" />
+    <None Include="Views\Cargo\Index.cshtml" />
+    <None Include="Views\Categoria\Create.cshtml" />
+    <None Include="Views\Categoria\Delete.cshtml" />
+    <None Include="Views\Categoria\Details.cshtml" />
+    <None Include="Views\Categoria\Edit.cshtml" />
+    <None Include="Views\Categoria\Index.cshtml" />
+    <None Include="Views\CompraCredito\Create.cshtml" />
+    <None Include="Views\CompraCredito\Index.cshtml" />
+    <None Include="Views\Escola\Create.cshtml" />
+    <None Include="Views\Escola\Delete.cshtml" />
+    <None Include="Views\Escola\Edit.cshtml" />
+    <None Include="Views\Escola\Index.cshtml" />
+    <None Include="Views\Estoque\Create.cshtml" />
+    <None Include="Views\Estoque\Delete.cshtml" />
+    <None Include="Views\Estoque\Details.cshtml" />
+    <None Include="Views\Estoque\Edit.cshtml" />
+    <None Include="Views\Estoque\Index.cshtml" />
+    <None Include="Views\Fornecedor\Create.cshtml" />
+    <None Include="Views\Fornecedor\Delete.cshtml" />
+    <None Include="Views\Fornecedor\Details.cshtml" />
+    <None Include="Views\Fornecedor\Edit.cshtml" />
+    <None Include="Views\Fornecedor\Index.cshtml" />
+    <None Include="Views\Funcionario\Create.cshtml" />
+    <None Include="Views\Funcionario\Delete.cshtml" />
+    <None Include="Views\Funcionario\Details.cshtml" />
+    <None Include="Views\Funcionario\Edit.cshtml" />
+    <None Include="Views\Funcionario\Index.cshtml" />
+    <None Include="Views\Home\About.cshtml" />
+    <None Include="Views\Home\Contact.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Manage\ChangePassword.cshtml" />
+    <None Include="Views\Manage\Disable2fa.cshtml" />
+    <None Include="Views\Manage\EnableAuthenticator.cshtml" />
+    <None Include="Views\Manage\ExternalLogins.cshtml" />
+    <None Include="Views\Manage\GenerateRecoveryCodes.cshtml" />
+    <None Include="Views\Manage\Index.cshtml" />
+    <None Include="Views\Manage\ResetAuthenticator.cshtml" />
+    <None Include="Views\Manage\SetPassword.cshtml" />
+    <None Include="Views\Manage\TwoFactorAuthentication.cshtml" />
+    <None Include="Views\Manage\_Layout.cshtml" />
+    <None Include="Views\Manage\_ManageNav.cshtml" />
+    <None Include="Views\Manage\_StatusMessage.cshtml" />
+    <None Include="Views\Manage\_ViewImports.cshtml" />
+    <None Include="Views\Nutricional\Create.cshtml" />
+    <None Include="Views\Nutricional\Delete.cshtml" />
+    <None Include="Views\Nutricional\Details.cshtml" />
+    <None Include="Views\Nutricional\Edit.cshtml" />
+    <None Include="Views\Nutricional\Index.cshtml" />
+    <None Include="Views\Perfil\Create.cshtml" />
+    <None Include="Views\Perfil\Delete.cshtml" />
+    <None Include="Views\Perfil\Edit.cshtml" />
+    <None Include="Views\Perfil\Index.cshtml" />
+    <None Include="Views\Produto\Create.cshtml" />
+    <None Include="Views\Produto\Delete.cshtml" />
+    <None Include="Views\Produto\Details.cshtml" />
+    <None Include="Views\Produto\Edit.cshtml" />
+    <None Include="Views\Produto\Index.cshtml" />
+    <None Include="Views\Responsavel\Create.cshtml" />
+    <None Include="Views\Responsavel\Delete.cshtml" />
+    <None Include="Views\Responsavel\Edit.cshtml" />
+    <None Include="Views\Responsavel\Index.cshtml" />
+    <None Include="Views\Serie\Create.cshtml" />
+    <None Include="Views\Serie\Delete.cshtml" />
+    <None Include="Views\Serie\Details.cshtml" />
+    <None Include="Views\Serie\Edit.cshtml" />
+    <None Include="Views\Serie\Index.cshtml" />
+    <None Include="Views\Shared\EditorTemplates\Aluno.cshtml" />
+    <None Include="Views\Shared\EditorTemplates\Cidade.cshtml" />
+    <None Include="Views\Shared\EditorTemplates\Endereco.cshtml" />
+    <None Include="Views\Shared\EditorTemplates\Escola.cshtml" />
+    <None Include="Views\Shared\EditorTemplates\Produto.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_Cantina.cshtml" />
+    <None Include="Views\Shared\_CantinaFuncoesPartial.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_Login.cshtml" />
+    <None Include="Views\Shared\_LoginPartial.cshtml" />
+    <None Include="Views\Shared\_Mensagens.cshtml" />
+    <None Include="Views\Shared\_NotificationPanel.cshtml" />
+    <None Include="Views\Shared\_Site.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Views\TipoNutricional\Create.cshtml" />
+    <None Include="Views\TipoNutricional\Delete.cshtml" />
+    <None Include="Views\TipoNutricional\Details.cshtml" />
+    <None Include="Views\TipoNutricional\Edit.cshtml" />
+    <None Include="Views\TipoNutricional\Index.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
+    <None Include="wwwroot\js\plugins\jasny\jasny-bootstrap.min.js" />
+    <None Include="wwwroot\js\sweetAlert\sweetalert-dev.js" />
+    <None Include="wwwroot\js\sweetAlert\sweetalert.min.js" />
+    <None Include="wwwroot\lib\select2\select2.min.js" />
+    <None Include="wwwroot\lib\sweetalert\sweet-alert-animations.less" />
+    <None Include="wwwroot\lib\sweetalert\sweet-alert-combine.less" />
+    <None Include="wwwroot\lib\sweetalert\sweet-alert.less" />
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <Reference Include="Cielo">
+      <HintPath>..\DLLS\Cielo.dll</HintPath>
+    </Reference>
+
+    <Reference Include="RestSharp">
+      <HintPath>..\DLLS\RestSharp.dll</HintPath>
+    </Reference>
+
+    <Reference Include="System.Data.DataSetExtensions" />
+
+    <Reference Include="System.Data.Entity" />
+
+    <Reference Include="System.Web" />
+
+  </ItemGroup>
+
+</Project>

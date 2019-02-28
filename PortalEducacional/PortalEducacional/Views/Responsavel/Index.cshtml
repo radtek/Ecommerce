@@ -1,0 +1,72 @@
+﻿@model IEnumerable<PortalEducacional.Models.ResponsavelFinanceiro>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-user"></i> Responsável</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Responsáveis</a></li>
+            <li><a href="#" class="color-primary">Lista de Responsáveis</a></li>
+        </ol>
+    </div>
+
+    <div class="block-clean">
+        <div class="block-clean">
+            <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+                <a class="btn btn-primary" asp-action="Create"><i class="fa fa-plus"></i> Novo</a>
+            </div>
+            <div class="fix"></div>
+            <div class="divisor">
+                <div class="divdentor"></div>
+            </div>
+            <div class="block-noborder">
+                <div class="headwi primary">Lista de Responsáveis</div>
+                <div class="tb-noborder table-responsive">
+                    <table class="table hover table-noborder datatable display">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayName("Ações")</th>
+                                <th>@Html.DisplayName("Nome")</th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CPF)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Telefone)
+                                </th>
+                                <th>@Html.DisplayName("E-mail")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.ResponsavelFinanceiroID" class="btn btn-success btn-trans btn-xs"><i class="fa fa-pencil"></i></a>
+                                            <a asp-action="Delete" asp-route-id="@item.ResponsavelFinanceiroID" class="btn btn-danger btn-trans btn-xs"><i class="fa fa-remove"></i></a>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CPF)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Telefone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

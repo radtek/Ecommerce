@@ -1,0 +1,206 @@
+﻿@model PortalEducacional.Models.ViewModel.AlunoResponsavelViewModel
+@{
+    ViewData["Title"] = "Editar";
+}
+<hr />
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-mortar-board"></i>Editar Aluno</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Aluno</a></li>
+            <li><a href="#" class="color-primary">Editar Aluno</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+                <a asp-action="Index" class="btn btn-default">Cancelar</a>
+                <input type="submit" value=" Salvar" id="btnSalvar" class="btn btn-success" />
+            </div>
+            <div class="fix"></div>
+            <div class="divisor">
+                <div class="divdentor"></div>
+            </div>
+            <div class="row">
+                <h5 class="headwi primary">Identificação Aluno</h5>
+
+                <div class="form-horizontal group-border-dashed">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <input type="hidden" asp-for="Aluno.AlunoID" />
+                    <input type="hidden" asp-for="Aluno.SaldoDisponivel" />
+
+                    <div class="form-group col-sm-12 col-md-4 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label class="control-label">Escola</label>
+                        <select class="form-control" asp-for="Aluno.EscolaID" asp-items="(SelectList)ViewBag.Escola"></select>
+                    </div>
+                    <div class="fix"></div>
+
+                    <div class="form-group col-sm-6 col-md-6 col-lg-6">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Aluno.Nome" class="control-label"></label>
+                        <input asp-for="Aluno.Nome" class="form-control" />
+                        <span asp-validation-for="Aluno.Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Aluno.Ra" class="control-label"></label>
+                        <input asp-for="Aluno.Ra" class="form-control" />
+                        <span asp-validation-for="Aluno.Ra" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Aluno.Serie.Descricao" class="control-label"></label>
+                        <select asp-for="Aluno.SerieID" class="form-control" asp-items="ViewBag.SerieID"></select>
+                    </div>
+
+                    <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Aluno.TipoGenero" class="control-label">Gênero</label>
+                        @Html.DropDownListFor(model => model.Aluno.TipoGenero, new SelectList(Enum.GetNames(typeof(Genero))), new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Aluno.DataNascimento" class="control-label"></label>
+                        <input asp-for="Aluno.DataNascimento" class="form-control" type="date" />
+                        <span asp-validation-for="Aluno.DataNascimento" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                        <label asp-for="Aluno.DataCadastro" class="control-label"></label>
+                        <input asp-for="Aluno.DataCadastro" class="form-control" id="DataCadastro" readonly />
+                        <span asp-validation-for="Aluno.DataCadastro" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-2 col-md-2 col-lg-1">
+                        <label asp-for="Aluno.Ativo" class="control-label">Ativo?</label>
+                        <br />
+                        <input asp-for="Aluno.Ativo" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <h5 class="headwi primary">Imagem Aluno</h5>
+                <div class="form-horizontal group-border-dashed">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <span style="font-size: 11px;">
+                            <span style="color: red;"><b>ATENÇÃO!</b></span> Tamanho ideal para a foto 144x144.
+                        </span>
+                    </div>
+                    <div class="col-sm-12 col-md-9 col-lg-9" style="margin-top: 55px;">
+                        <label asp-for="Aluno.Foto"></label>
+                        <input type="file" name="img" id="img">
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3 right">
+                        @if (Model.Aluno != null)
+                        {
+                            @if (Model.Aluno.Foto != null)
+                            {
+                                <img src="@String.Format("data:image/jpg;base64,{0}", Model.Imagem)" class="imagem-usuario" />
+                            }
+                            else
+                            {
+                                <img src="~/images/Cantina/img-user.jpg" alt="Cliente" class="imagem-usuario" />
+                            }
+                        }
+                        else
+                        {
+                            <img src="~/images/Cantina/img-user.jpg" alt="Cliente" class="imagem-usuario" />
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <h5 class="headwi primary">Identificação de Responsáveis</h5>
+
+                <div class="form-horizontal group-border-dashed">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <label class="control-label" style="color:dimgray">Dados do Responsável Legal</label>
+                    <div class="fix"></div>
+                    <div class="divisor">
+                        <div class="divdentor"></div>
+                    </div>
+
+                    <input type="hidden" asp-for="ResponsavelLegal.ResponsavelID" />
+                    <div class="form-group col-sm-3 col-md-3 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label asp-for="ResponsavelLegal.CPF" class="control-label">CPF</label>
+                        <input asp-for="ResponsavelLegal.CPF" class="form-control mask-cpf" id="cpfResponsavel" />
+                        <span asp-validation-for="ResponsavelLegal.CPF" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                        <strong class="obg">*</strong>
+                        <label asp-for="ResponsavelLegal.Nome" class="control-label">Nome</label>
+                        <input asp-for="ResponsavelLegal.Nome" class="form-control" />
+                        <span asp-validation-for="ResponsavelLegal.Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-3 col-md-3 col-lg-3">
+                        <label asp-for="ResponsavelLegal.Email" class="control-label">E-mail</label>
+                        <input asp-for="ResponsavelLegal.Email" class="form-control" id="emailResp" />
+                        <span asp-validation-for="ResponsavelLegal.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                        <label asp-for="ResponsavelLegal.Telefone" class="control-label">Telefone</label>
+                        <input asp-for="ResponsavelLegal.Telefone" class="form-control mask-telefone" />
+                        <span asp-validation-for="ResponsavelLegal.Telefone" class="text-danger"></span>
+                    </div>
+
+                    <label class="control-label" style="color:dimgray">Dados do Responsável Financeiro</label>
+                    <div class="fix"></div>
+                    <div class="divisor">
+                        <div class="divdentor"></div>
+                    </div>
+                    <input type="hidden" asp-for="ResponsavelFinanceiro.ResponsavelID" />
+                    <div class="form-group col-sm-3 col-md-3 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label asp-for="ResponsavelFinanceiro.CPF" class="control-label">CPF</label>
+                        <input asp-for="ResponsavelFinanceiro.CPF" class="form-control mask-cpf" id="cpfResponsavelFin" />
+                        <span asp-validation-for="ResponsavelFinanceiro.CPF" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                        <strong class="obg">*</strong>
+                        <label asp-for="ResponsavelFinanceiro.Nome" class="control-label">Nome</label>
+                        <input asp-for="ResponsavelFinanceiro.Nome" class="form-control" />
+                        <span asp-validation-for="ResponsavelFinanceiro.Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-3 col-md-3 col-lg-3">
+                        <label asp-for="ResponsavelFinanceiro.Email" class="control-label">E-mail</label>
+                        <input asp-for="ResponsavelFinanceiro.Email" class="form-control" id="emailRespFin" />
+                        <span asp-validation-for="ResponsavelFinanceiro.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                        <label asp-for="ResponsavelFinanceiro.Telefone" class="control-label">Telefone</label>
+                        <input asp-for="ResponsavelFinanceiro.Telefone" class="form-control mask-telefone" />
+                        <span asp-validation-for="ResponsavelFinanceiro.Telefone" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="inProgress" id="inProgress" style="display: none;">
+</div>
+<div class="inProgress2" id="inProgress2" style="display: none;">
+    <span class="color-primary" style="font-size: 25px"><i class="fa fa-spinner fa-spin"></i></span>
+    <br />
+    <span class="color-primary">Aguarde...</span>
+</div>
+<div id="result"></div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

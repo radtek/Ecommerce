@@ -1,0 +1,72 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Registrar";
+}
+
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-user-plus"></i> Novo Usuário</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Configurações</a></li>
+            <li><a href="#" class="color-primary">Registre-se</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+            <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+                <a asp-controller="Account" asp-action="Login" class="btn btn-default">Cancelar</a>
+                <button type="submit" class="btn btn-success">Registrar</button>
+            </div>
+            <div class="fix"></div>
+            <div class="divisor">
+                <div class="divdentor"></div>
+            </div>
+            <div class="row">
+                <h5 class="headwi primary">Dados do Usuário</h5>
+                <div class="form-horizontal group-border-dashed">
+                    <div class="col-md-4">
+
+                        <p>
+                            Para ter uma senha mais segura, crie uma senha de 6 a 15 dígitos.<br />
+                            Contendo: números, letras maiúsculas, letras minusculas e caracteres especiais (Ex: <strong>. / # *</strong>).
+                        </p>
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <strong class="obg">*</strong>
+                            <label class="control-label">Escola</label>
+                            <select class="form-control" asp-for="EscolaID" asp-items="(SelectList)ViewBag.Escola"></select>
+                        </div>
+                        <div class="form-group">
+                            <strong class="obg">*</strong>
+                            <label asp-for="Nome"></label>
+                            <input asp-for="Nome" class="form-control" />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <strong class="obg">*</strong>
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <strong class="obg">*</strong>
+                            <label asp-for="Password"></label>
+                            <input asp-for="Password" class="form-control" placeholder="Ex. #Login456" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <strong class="obg">*</strong>
+                            <label asp-for="ConfirmPassword"></label>
+                            <input asp-for="ConfirmPassword" class="form-control" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

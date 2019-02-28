@@ -1,0 +1,155 @@
+﻿@model PortalEducacional.Models.ApplicationUser
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-user-plus"></i> Alteração de Usuário</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Segurança</a></li>
+            <li><a href="#" class="color-primary">Usuário</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="SecurityStamp" />
+            <input type="hidden" asp-for="UserName" />
+            <div class="col-sm-6 col-col-md-6 col-lg-6 no-padding left top">
+                <span style="font-size: 11px;">
+                    <span style="color: red;"><b>ATENÇÃO!</b></span><br /> Para ter uma senha mais segura, crie uma senha de 6 a 15 dígitos.<br />
+                    <b>Contendo:</b> números, letras maiúsculas, letras minusculas e caracteres especiais (Ex: <strong>. / # *</strong>).
+                </span>
+            </div>
+
+            <div class="col-sm-6 col-col-md-6 col-lg-6 no-padding right top">
+                <a asp-action="Index" class="btn btn-default">Cancelar</a>
+                <input type="submit" value=" Salvar" class="btn btn-success" id="btnSalvar" />
+            </div>
+            <div class="fix"></div>
+            <div class="divisor">
+                <div class="divdentor"></div>
+            </div>
+            <div class="row">
+                <h5 class="headwi primary">Dados do Usuário</h5>
+                <div class="form-horizontal group-border-dashed">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="form-group col-sm-12 col-md-4 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label class="control-label">Escola</label>
+                        <select class="form-control" asp-for="EscolaID" asp-items="(SelectList)ViewBag.Escola"></select>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label class="control-label" asp-for="Perfil"></label>
+                        <select class="form-control" asp-for="PerfilID" asp-items="(SelectList)ViewBag.Perfil" onchange="BuscaPermissoesPorPerfil(this);">
+                            <option selected value="0"> Selecione um Perfil</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2 col-lg-1">
+                        <label asp-for="Master" class="control-label">Master?</label>
+                        <br />
+                        <input asp-for="Master" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2 col-lg-1">
+                        <label asp-for="Ativo" class="control-label">Ativo?</label>
+                        <br />
+                        <input asp-for="Ativo" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                    <div class="fix"></div>
+
+                    <div class="form-group col-sm-12 col-md-4 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label class="control-label">Nome</label>
+                        <input class="form-control" asp-for="Nome" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <strong class="obg">*</strong>
+                        <label class="control-label">E-mail</label>
+                        <input class="form-control" asp-for="Email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-3 col-lg-2" style="margin-top: 7px;">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" placeholder="Ex. #LOGIN456" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-3 col-lg-2" style="margin-top: 7px;">
+                        <strong class="obg">*</strong>
+                        <label asp-for="ConfirmPassword"></label>
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="fix"></div>
+                    <h5 class="headwi primary">Permissões de Acesso</h5>
+                    <div class="block-noborder">
+                        <div class="form-horizontal group-border-dashed">
+                            <div class="col-md-12 right no-padding">
+                                <a ID="aBloquearTodos" class="btn btn-danger btn-trans" onclick="MarcaTodos(this);"><i class="fa fa-times"></i>&nbsp; Bloquear Todos</a>
+                                <a ID="aEditarTodos" class="btn btn-success btn-trans" onclick="MarcaTodos(this);"><i class="fa fa-pencil"></i>&nbsp; Editar Todos</a>
+                            </div>
+                            <div class="fix"></div>
+                        </div>
+                        <div id="modulo">
+                            <table class="table table-noborder">
+                                <thead>
+                                    <tr>
+                                        <th>Menu</th>
+                                        <th>Funcionalidade</th>
+                                        <th style="width: 20px"></th>
+                                        <th style="width: 20px"></th>
+                                        <th style="width: 20px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody-funcionalidades">
+                                    @if (Model.ListaPermissoes != null)
+                                    {
+                                        var i = 0;
+                                        foreach (var item in Model.ListaPermissoes.OrderBy(x => x.Menu))
+                                        {
+                                            <tr>
+                                                <input type="hidden" name="@($"ListaPermissoes[{i}].UsuarioPermissoesID")" value="@item.UsuarioPermissoesID" />
+                                                <input type="hidden" name="@($"ListaPermissoes[{i}].Menu")" value="@item.Menu" />
+                                                <input type="hidden" id="@($"tela{i}")" name="@($"ListaPermissoes[{i}].Controller")" value="@item.Controller" />
+                                                <input type="hidden" name="@($"ListaPermissoes[{i}].DescricaoTela")" value="@item.DescricaoTela" />
+                                                <input type="hidden" id="@($"status{i}")" name="@($"ListaPermissoes[{i}].Status")" value="@item.Status" />
+                                                <td>@item.Menu</td>
+                                                <td>@item.DescricaoTela</td>
+                                                @if (item.Status == "BLOQUEADO")
+                                                {
+                                                    <td><a ID="@($"bloque{i}")" class="btn btn-danger btn-xs" data-placement="top" data-toggle="tooltip" data-original-title="Bloqueado" onclick="MarcaOpcaoFuncionalidade(this);"><i class="fa fa-times"></i></a></td>
+                                                    <td><a ID="@($"editar{i}")" class="btn btn btn-default btn-xs" data-placement="top" data-toggle="tooltip" data-original-title="Visualizar / Editar" onclick="MarcaOpcaoFuncionalidade(this);"><i class="fa fa-pencil"></i></a></td>
+                                                }
+                                                else if (item.Status == "EDITAR")
+                                                {
+                                                    <td><a ID="@($"bloque{i}")" class="btn btn-default btn-xs" data-placement="top" data-toggle="tooltip" data-original-title="Bloqueado" onclick="MarcaOpcaoFuncionalidade(this);"><i class="fa fa-times"></i></a></td>
+                                                    <td><a ID="@($"editar{i}")" class="btn btn btn-success btn-xs" data-placement="top" data-toggle="tooltip" data-original-title="Visualizar / Editar" onclick="MarcaOpcaoFuncionalidade(this);"><i class="fa fa-pencil"></i></a></td>
+                                                }
+                                            </tr>
+                                            i++;
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="inProgress" id="inProgress" style="display: none;">
+</div>
+<div class="inProgress2" id="inProgress2" style="display: none;">
+    <span class="color-primary" style="font-size: 25px"><i class="fa fa-spinner fa-spin"></i></span>
+    <br />
+    <span class="color-primary">Aguarde...</span>
+</div>
+<div id="result"></div>
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

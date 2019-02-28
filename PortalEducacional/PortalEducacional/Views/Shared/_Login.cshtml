@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Epta | Portal Nutricional</title>
+
+    <link rel="shortcut icon" href="~/images/Logo/epta.ico">
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css">
+
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="~/lib/Ionicons/css/ionicons.min.css">
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/css/AdminLTE.css" />
+
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/lib/plugins/iCheck/square/blue.css">
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <img src="~/images/Logo/logo-adventista.png" alt="Escola Adventista" width="300" height="100" />
+        </div>
+
+        <div class="cl-mcont">
+            <div class="content">
+                @RenderBody()
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery 3 -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap 3.3.7 -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="~/lib/plugins/iCheck/icheck.min.js"></script>
+
+    <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%'
+            });
+        });
+    </script>
+
+    <!-- Chat do Movidesk -->
+    <script type="text/javascript">var mdChatClient = "281350CB089D4FD289832A65C6CF08E1";</script>
+    <script src="https://chat.movidesk.com/Scripts/chat-widget.min.js"></script>
+    <!-- Chat do Movidesk fim -->
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

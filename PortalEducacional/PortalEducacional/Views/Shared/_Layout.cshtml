@@ -1,0 +1,466 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - My Bonus</title>
+
+    <environment include="Development">
+
+        <link rel="shortcut icon" href="~/images/Logo/epta.ico">
+
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+
+        <!--switch-->
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+        <!--jquery-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css">
+
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="~/lib/Ionicons/css/ionicons.min.css">
+
+        <!--Sweet Alert-->
+        <link rel="stylesheet" href="~/lib/sweetalert.css" />
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="~/css/AdminLTE.css" />
+        <link rel="stylesheet" href="~/css/skins/_all-skins.css" />
+        <link rel="stylesheet" href="~/css/style.css" />
+
+        <!-- Morris chart -->
+        <link rel="stylesheet" href="~/lib/morris.js/morris.css">
+
+        <!-- jvectormap -->
+        <link rel="stylesheet" href="~/lib/jvectormap/jquery-jvectormap.css">
+
+        <!-- Date Picker -->
+        <link rel="stylesheet" href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+        <!-- Daterange picker -->
+        <link rel="stylesheet" href="~/lib/bootstrap-daterangepicker/daterangepicker.css">
+
+        <!-- bootstrap wysihtml5 - text editor -->
+        <link rel="stylesheet" href="~/lib/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+        <!-- Google Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="~/lib/Ionicons/css/ionicons.min.css">
+
+        <!--DATATABLES-->
+        <link rel="stylesheet" href="~/lib/dataTables/datatables.min.css" />
+
+        <!--Select2-->
+        <link rel="stylesheet" href="~/lib/select2/select2.css" />
+
+        <!--EMOJI CSS-->
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+
+        <!--jquery-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+
+        <!--switch-->
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css">
+
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="~/lib/Ionicons/css/ionicons.min.css">
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="~/css/AdminLTE.css" />
+        <link rel="stylesheet" href="~/css/skins/_all-skins.css" />
+        <link rel="stylesheet" href="~/css/style.css" />
+
+        <!-- Morris chart -->
+        <link rel="stylesheet" href="~/lib/morris.js/morris.css">
+
+        <!--Sweet Alert-->
+        <link rel="stylesheet" href="~/lib/sweetalert.css" />
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <!-- jvectormap -->
+        <link rel="stylesheet" href="~/lib/jvectormap/jquery-jvectormap.css">
+
+        <!-- Date Picker -->
+        <link rel="stylesheet" href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+        <!-- Daterange picker -->
+        <link rel="stylesheet" href="~/lib/bootstrap-daterangepicker/daterangepicker.css">
+
+        <!-- bootstrap wysihtml5 - text editor -->
+        <link rel="stylesheet" href="~/lib/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+        <!-- Google Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+        <!--Select2-->
+        <link rel="stylesheet" href="~/lib/select2/select2.css" />
+
+        <!--DATATABLES-->
+        <link rel="stylesheet" href="~/lib/dataTables/datatables.min.css" />
+
+        <!--EMOJI CSS-->
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+</head>
+<body onload="pageLoad();" class="skin-blue sidebar-mini">
+    <div class="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <header class="main-header">
+                <div class="navbar-header">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="logo">
+                        <span class="logo-mini"><b>M</b>B</span>
+                        <span class="logo-lg"><b>My</b> Bonus</span>
+                    </a>
+                    <nav class="navbar navbar-static-top">
+                        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                            <span class="sr-only">Toggle navigation</span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="navbar-collapse collapse">
+                    @*<ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">Sobre</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
+                    </ul>*@
+                    <ul class="right top" style="margin-right: 30px;">
+                        @await Html.PartialAsync("_LoginPartial")
+                    </ul>
+                </div>
+            </header>
+            <div class="main-sidebar">
+                <section class="sidebar" style="height: auto;">
+                    <ul class="sidebar-menu tree" data-widget="tree">
+                        <li class="header">&nbsp;</li>
+
+                        @*MENU CADASTROS*@
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-edit"></i> <span>Cadastros</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a asp-area="" asp-controller="Escola" asp-action="Index"><i class="fa fa-university"></i>Escola</a></li>
+                                <li><a asp-area="" asp-controller="Serie" asp-action="Index"><i class="fa fa-signal"></i>Série</a></li>
+                                <li><a asp-area="" asp-controller="Aluno" asp-action="Index"><i class="fa fa-mortar-board"></i>Aluno</a></li>
+                                <li><a asp-area="" asp-controller="Cargo" asp-action="Index"><i class="fa fa-th"></i>Cargo</a></li>
+                                <li><a asp-area="" asp-controller="Funcionario" asp-action="Index"><i class="fa fa-users"></i>Funcionário</a></li>
+                                <li><a asp-area="" asp-controller="Fornecedor" asp-action="Index"><i class="fa fa-truck"></i>Fornecedor</a></li>
+
+                            </ul>
+                        </li>
+
+                        @*MENU PRODUTOS*@
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cubes"></i> <span>Produtos</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a asp-area="" asp-controller="Produto" asp-action="Index"><i class="fa fa-cutlery"></i>Cadastros</a></li>
+                                <li><a asp-area="" asp-controller="Categoria" asp-action="Index"><i class="fa fa-reorder"></i>Categoria</a></li>
+                                <li><a asp-area="" asp-controller="TipoNutricional" asp-action="Index"><i class="fa fa-cutlery"></i>Tipo Nutricional</a></li>
+                            </ul>
+                        </li>
+
+                        @*MENU ESTOQUE*@
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-align-right"></i> <span>Controle Estoque</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a asp-area="" asp-controller="Estoque" asp-action="Index"><i class="fa fa-refresh"></i>Estoque</a></li>
+                                <li><a asp-area="" asp-controller="Estoque" asp-action="Details"><i class="fa fa-align-right"></i>Estoque Disponível</a></li>
+                            </ul>
+                        </li>
+
+                        @*MENU NUTRICIONAL*@
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-heartbeat"></i> <span>Nutricional</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a asp-area="" asp-controller="Nutricional" asp-action="Index"><i class="fa fa-heartbeat"></i>Avaliação Nutricional</a></li>
+                            </ul>
+                        </li>
+
+                        @*MENU CANTINA*@
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-shopping-cart"></i> <span>Cantina</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a asp-area="" asp-controller="Cantina" asp-action="Index"><i class="fa fa-shopping-cart"></i>Cantina</a></li>
+                                <li><a asp-area="" asp-controller="CompraCredito" asp-ation="Index"><i class="fa fa-credit-card"></i>Compra de Crédito</a></li>
+                                @*<li><a asp-area="" asp-controller="Nutricional" asp-action="Index"><i class="fa fa-bar-chart"></i>Histórico</a></li>*@
+                            </ul>
+                        </li>
+                        @*ACESSO RESPONSAVEL*@
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-user"></i> <span>Acesso Responsável</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a asp-area="" asp-controller="Responsavel" asp-action="Index"><i class="fa fa-user"></i>Responsáveis</a></li>
+
+                            </ul>
+                        </li>
+
+                        @*SEGURANÇA*@
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-lock"></i> <span>Segurança</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a asp-area="" asp-controller="ApplicationUser" asp-action="Index"><i class="fa fa-user-plus"></i>Usuário</a></li>
+                                <li><a asp-area="" asp-controller="Perfil" asp-action="Index"><i class="fa fa-user-md"></i>Perfil</a></li>
+                            </ul>
+                        </li>
+
+                        @*MENU CONTA*@
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-gears"></i> <span>Configurações</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a asp-area="" asp-controller="Manage" asp-action="Index"><i class="fa fa-unlock-alt"></i>Dados da Conta</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="content-wrapper">
+                <div class="content">
+                    <div class="container body-content">
+                        @Html.Partial("_NotificationPanel")
+                        <div class="col-lg-12">
+                            @RenderBody()
+                            <hr />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="main-footer">
+                <div class="pull-right hidden-xs">
+                    <b>Versão</b> 5.0.4
+                </div>
+                <p style="text-align:center">&copy; @Html.Label(DateTime.Now.Year.ToString()) - My Bonus</p>
+            </footer>
+        </nav>
+    </div>
+
+    <environment include="Development">
+        <!-- jQuery 3 -->
+        <script async="" src="//www.google-analytics.com/analytics.js"></script>
+
+
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+        <!-- jQuery UI 1.11.4 -->
+        <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
+
+        <!-- Bootstrap 3.3.7 -->
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+        <!--Sparkline-->
+        <script src="~/lib/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+
+        <!-- jvectormap -->
+        <script src="~/lib/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="~/lib/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+
+        <!-- jQuery Knob Chart -->
+        <script src="~/lib/jquery-knob/dist/jquery.knob.min.js"></script>
+
+        <!-- daterangepicker -->
+        <script src="~/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script src="~/lib/moment/min/moment.min.js"></script>
+
+        <!-- datepicker -->
+        <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+        <!-- Bootstrap WYSIHTML5 -->
+        <script src="~/lib/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+
+        <!-- Slimscroll -->
+        <script src="~/lib/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+        <!--Sweet Alert-->
+        <!-- FastClick -->
+        <script src="~/lib/fastclick/lib/fastclick.js"></script>
+
+        <!-- AdminLTE-->
+        <script src="~/js/adminlte.js"></script>
+        <script src="~/js/demo.js"></script>
+
+        <script src="~/js/Scripts/BuscaCEP.js"></script>
+
+        <!-- Input Mask-->
+        <script src="~/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+
+        <!--JQuery Mask-->
+        <script src="~/js/Scripts/jquery.mask.min.js"></script>
+
+        <!--Morris.js -->
+        <script src="~/lib/morris.js/morris.js"></script>
+        <script src="~/lib/raphael/raphael.min.js"></script>
+
+        <!--DATATABLES-->
+        <script src="~/lib/jquery.datatables/jquery.datatables.min.js"></script>
+        <script src="~/lib/jquery.datatables/bootstrap-adapter/js/datatables.js"></script>
+        <script src="~/lib/dataTables/datatables.min.js"></script>
+
+        <!--Select2-->
+        <script src="~/lib/select2/select2.min.js"></script>
+
+        <!--switch-->
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+        <!-- Chat do Movidesk -->
+        <script type="text/javascript">var mdChatClient = "281350CB089D4FD289832A65C6CF08E1";</script>
+        <script src="https://chat.movidesk.com/Scripts/chat-widget.min.js"></script>
+        <!-- Chat do Movidesk fim -->
+        <!--CUSTOMIZADOS-->
+        <script src="~/js/Scripts/site.js" asp-append-version="true"></script>
+
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/Scripts/site.js" asp-append-version="true"></script>
+
+        <!-- jQuery 3 -->
+        <script async="" src="//www.google-analytics.com/analytics.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+        <!-- jQuery UI 1.11.4 -->
+        <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
+
+        <!-- Bootstrap 3.3.7 -->
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+        <!--Sparkline-->
+        <script src="~/lib/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+
+        <!-- jvectormap -->
+        <script src="~/lib/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="~/lib/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+
+        <!-- jQuery Knob Chart -->
+        <script src="~/lib/jquery-knob/dist/jquery.knob.min.js"></script>
+
+        <!--Sweet Alert-->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <!-- daterangepicker -->
+        <script src="~/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script src="~/lib/moment/min/moment.min.js"></script>
+
+        <!-- datepicker -->
+        <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+        <!-- Bootstrap WYSIHTML5 -->
+        <script src="~/lib/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+
+        <!-- Slimscroll -->
+        <script src="~/lib/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+        <!-- FastClick -->
+        <script src="~/lib/fastclick/lib/fastclick.js"></script>
+
+        <!-- AdminLTE-->
+        <script src="~/js/adminlte.js"></script>
+        <script src="~/js/demo.js"></script>
+
+        <script src="~/js/Scripts/BuscaCEP.js"></script>
+
+        <!-- Input Mask-->
+        <script src="~/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+
+        <!--JQuery Mask-->
+        <script src="~/js/Scripts/jquery.mask.min.js"></script>
+
+        <!--Morris.js -->
+        <script src="~/lib/morris.js/morris.js"></script>
+        <script src="~/lib/raphael/raphael.min.js"></script>
+
+        <!--DATATABLES-->
+        <script src="~/lib/jquery.datatables/jquery.datatables.min.js"></script>
+        <script src="~/lib/jquery.datatables/bootstrap-adapter/js/datatables.js"></script>
+        <script src="~/lib/dataTables/datatables.min.js"></script>
+
+        <!--Select2-->
+        <script src="~/lib/select2/select2.min.js"></script>
+
+        <!--switch-->
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+        <!-- Chat do Movidesk -->
+        <script type="text/javascript">var mdChatClient = "281350CB089D4FD289832A65C6CF08E1";</script>
+        <script src="https://chat.movidesk.com/Scripts/chat-widget.min.js"></script>
+        <!-- Chat do Movidesk fim -->
+
+
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

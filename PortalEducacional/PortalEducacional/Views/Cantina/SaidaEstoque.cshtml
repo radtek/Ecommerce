@@ -1,0 +1,103 @@
+﻿@model PortalEducacional.Models.ViewModel.EstoqueEstoqueEmpresaViewModel
+@{
+    ViewData["Title"] = "Movimentação Estoque";
+    Layout = "_Cantina";
+}
+
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-refresh"></i> Movimentação Estoque</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Estoque</a></li>
+            <li><a href="#" class="color-primary">Movimentação Estoque</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <form asp-action="SaidaEstoque">
+            <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+                <a asp-action="Index" class="btn btn-default">Cancelar</a>
+                <input type="submit" value=" Salvar" class="btn btn-success" id="btnSalvar" />
+            </div>
+            <div class="fix"></div>
+            <div class="divisor">
+                <div class="divdentor"></div>
+            </div>
+            <div class="row">
+                <h5 class="headwi primary">Regitro de Movimento</h5>
+
+                <div class="form-horizontal group-border-dashed">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group col-sm-12 col-md-4 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label class="control-label">Escola</label>
+                        <select class="form-control" asp-for="Estoque.EscolaID" asp-items="(SelectList)ViewBag.Escola"></select>
+                    </div>
+                    <div class="fix"></div>
+
+                    <div class="form-group col-sm-6 col-md-3 col-lg-2">
+                        <label asp-for="Estoque.DataCadastro" class="control-label"></label>
+                        <input asp-for="Estoque.DataCadastro" class="form-control" readonly="@(true)" />
+                    </div>
+
+                    <div class="form-group col-sm-6 col-md-5 col-lg-2">
+                        <strong class="obg">*</strong>
+                        <label class="control-label">Tipo Movimento</label>
+                        <select asp-for="Estoque.Saida" class="form-control">
+                            <option value="false">Entrada</option>
+                            <option value="true">Saída</option>
+                        </select>
+                    </div>
+
+                    <input asp-for="Estoque.ProdutoID" type="hidden" />
+                    @Html.EditorFor(model => model.Estoque.Produto)
+
+                    <div class="form-group col-sm-5 col-md-3 col-lg-1">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Estoque.Quantidade" class="control-label"></label>
+                        <input asp-for="Estoque.Quantidade" class="form-control" onkeyup="SomenteNumeros(this);" />
+                        <span asp-validation-for="Estoque.Quantidade" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-7 col-md-9 col-lg-11">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Estoque.Historico" class="control-label"></label>
+                        <input asp-for="Estoque.Historico" class="form-control" />
+                        <span asp-validation-for="Estoque.Historico" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="controleProduto">
+                <div class="row">
+                    <h5 class="headwi primary">Controle Produto</h5>
+                    <div class="form-horizontal group-border-dashed">
+
+                        <div class="form-group col-sm-5 col-md-3 col-lg-2">
+                            <label asp-for="Estoque.ValorCompra" class="control-label"></label>
+                            <input asp-for="Estoque.ValorCompra" class="form-control" onkeyup="SomenteNumeros(this);" placeholder="R$" />
+                        </div>
+                        <div class="form-group col-sm-5 col-md-3 col-lg-2">
+                            <label asp-for="EstoqueEmpresa.QuantidadeMinima" class="control-label"></label>
+                            <input asp-for="EstoqueEmpresa.QuantidadeMinima" class="form-control" onkeyup="SomenteNumeros(this);" maxlength="5" />
+                        </div>
+                        <div class="form-group col-sm-5 col-md-3 col-lg-2">
+                            <label asp-for="EstoqueEmpresa.QuantidadeMaxima" class="control-label">Quantidade Máxima</label>
+                            <input asp-for="EstoqueEmpresa.QuantidadeMaxima" class="form-control" onkeyup="SomenteNumeros(this);" maxlength="5" />
+                        </div>
+                        <div class="form-group col-sm-5 col-md-3 col-lg-2">
+                            <label class="control-label">Vencimento</label>
+                            <input asp-for="EstoqueEmpresa.Validade" class="form-control mask-data" placeholder="__/__/____" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="inProgress" id="inProgress" style="display: none;">
+</div>
+<div class="inProgress2" id="inProgress2" style="display: none;">
+    <span class="color-primary" style="font-size: 25px"><i class="fa fa-spinner fa-spin"></i></span>
+    <br />
+    <span class="color-primary">Aguarde...</span>
+</div>
+<div id="result"></div>

@@ -1,0 +1,153 @@
+﻿@model PortalEducacional.Models.ViewModel.CantinaViewModel
+@{
+    ViewData["Title"] = "Epta Educação";
+    Layout = "_Cantina";
+}
+<hr />
+
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-lock"></i> Fechamento de Caixa</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Cantina</a></li>
+            <li><a href="#" class="color-primary">Fechamento de Caixa</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <form asp-action="ReabrirCaixa">
+            <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+                <input type="hidden" asp-for="CaixaFechamento.CaixaFechamentoID" />
+                <input type="hidden" asp-for="CaixaFechamento.DataCadastro" />
+                <input type="hidden" asp-for="CaixaFechamento.SaldoFinal" />
+                <input type="hidden" asp-for="CaixaFechamento.SaldoInicial" />
+                <input type="hidden" asp-for="CaixaFechamento.Fechado" id="CaixaFechamentoFechado" />
+                <input class="btn btn-info btn-trans" type="submit" value="Reabertura de Caixa" id="reabrirCaixa">
+            </div>
+        </form>
+        <form asp-action="RealizaFechamentoCaixa">
+            <div class="row max-content">
+                <div class="col-sm-12 col-md-12 no-padding">
+                    <div class="block-flat">
+                        <div class="content no-padding">
+                            <div class="form-horizontal ">
+                                <div class="fix"></div>
+                                <div>
+                                    <div class="col-sm-12 color-primary">
+                                        <h4>Dados do Movimento</h4>
+                                    </div>
+                                    <div class="fix"></div>
+
+                                    <div class="table-responsive">
+                                        <table class="table hover table-bordered">
+                                            <thead class="headertable-primary">
+                                                <tr>
+                                                    <th class="center">Data do Movimento</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="center">@Html.DisplayFor(model => model.CaixaFechamento.DataCadastro)</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="table-responsive">
+                                        <table class="table hover table-bordered">
+                                            <thead class="headertable-primary">
+                                                <tr>
+                                                    <th>Movimento</th>
+                                                    <th>Valor R$</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="left">Saldo Caixa Anterior</td>
+                                                    <td class="left">@Html.DisplayFor(model => model.SaldoCaixaAnterior)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left">Sangria</td>
+                                                    <td class="left">@Html.DisplayFor(model => model.ValorTotalSangria)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left">Valor Recebido</td>
+                                                    <td class="left">@Html.DisplayFor(model => model.ValorTotalLiquido)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Status</td>
+                                                    @if (Model.CaixaFechamento.Fechado)
+                                                    {
+                                                        <td class="left" style="color:red"><strong>JÁ ENCERRADO!</strong></td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="left" style="color:red"><strong>ABERTO</strong></td>
+                                                    }
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="fix"></div>
+                                    <div class="col-sm-12 color-primary">
+                                    </div>
+                                    <div class="col-sm-12 center">
+                                        <a asp-action="Index" class="btn btn-default">Cancelar</a>
+                                        <input type="submit" value="Confirmar" class="btn btn-success" id="btnSalvar">
+                                    </div>
+                                    <div class="fix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@*MODAL SANGRIA*@
+<div class="modal fade" tabindex="-1" id="modalSangria" data-keyboard="false" data-backdrop="false">
+    <form asp-action="SalvarSangria">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header-danger">
+                    <button type="button" class="close" data-dismiss="modal">
+                        ×
+                    </button>
+                    <h4 class="modal-title">Lançamento de Sangria</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="col-sm-12 col-md-4 col-lg-2">
+                        <label>Valor R$</label>
+                        <input asp-for="SangriaCaixa.Valor" class="form-control monetario" placeholder="R$" id="valorSangria" />
+                    </div>
+                    <div class="col-sm-12 col-md-8 col-lg-10">
+                        <label>Motivo</label>
+                        <input asp-for="SangriaCaixa.Motivo" class="form-control" id="motivoSangria" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <br /><br /><br />
+                    <a class="btn btn-default" value="Cancelar" onclick="OpenModalSangria(false);">Cancelar</a>
+                    <input type="submit" class="btn btn-success" id="btnHideModal" value="Salvar" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="inProgress" id="inProgress" style="display: none;">
+</div>
+<div class="inProgress2" id="inProgress2" style="display: none;">
+    <span class="color-primary" style="font-size: 25px"><i class="fa fa-spinner fa-spin"></i></span>
+    <br />
+    <span class="color-primary">Aguarde...</span>
+</div>
+<div id="result"></div>
+
+<script>
+
+
+
+</script>

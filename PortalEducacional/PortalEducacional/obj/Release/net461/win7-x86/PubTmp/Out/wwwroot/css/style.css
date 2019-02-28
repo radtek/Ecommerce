@@ -1,0 +1,660 @@
+﻿/*BODY*/
+body {
+    position: relative;
+    padding: 0;
+    background-color: #F0F0F0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #555;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal;
+    font-style: normal;
+}
+
+label {
+    margin-bottom: 0px !important;
+    font-weight: 600 !important;
+    font-size: 12px;
+}
+
+.color-primary {
+    color: #3c8dbc !important;
+}
+
+.modal-header-info {
+    padding: 20px;
+    border-bottom: 5px solid #2a688c !important;
+    background-color: #3c8dbc;
+    color: #fff;
+}
+
+.modal-header-danger {
+    padding: 20px;
+    border-bottom: 5px solid #d64d3f !important;
+    background-color: #ed5565;
+    color: #fff;
+}
+
+.modal-header-success {
+    padding: 20px;
+    border-bottom: 5px solid #008d4c !important;
+    background-color: #00a65a;
+    color: #fff;
+}
+
+.obg {
+    color: Red;
+    font-weight: bold;
+}
+
+.form-control {
+    font-size: 12px;
+}
+
+    .form-horizontal.group-border-dashed .form-group {
+    margin: 0;
+    padding: 7px 5px;
+    border-bottom: 1px dashed #efefef;
+}
+
+    .form-horizontal.group-border-dashed .form-group label {
+        margin-bottom: 7px;
+    }
+
+.ibox-content {
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+    min-height: 300px;
+}
+
+.body-content {
+    width: 100%;
+}
+
+.cl-mcont.aside {
+    padding: 0;
+    display: table;
+    height: 100%;
+    padding: 0px 0 0;
+}
+
+    .cl-mcont.aside > .content {
+        vertical-align: top;
+        display: table-cell;
+        width: 100%;
+    }
+
+.cl-mcont .row {
+    margin-top: 20px;
+}
+
+.cl-mcont .col-lg-6 {
+    padding: 0 15px;
+}
+
+.cl-mcont {
+    background-color: #F0F0F0;
+    color: inherit;
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 21px;
+    min-height: 850px;
+}
+
+    .cl-mcont h1 {
+        line-height: 1.3em;
+    }
+
+.breadcrumb {
+    background: transparent;
+    margin-bottom: 0;
+    padding: 4px;
+    margin-top: 5px;
+}
+
+    .breadcrumb > li a {
+        color: inherit;
+    }
+
+.block-clean {
+    margin-bottom: 50px;
+    padding: 10px;
+    background: #FFF;
+    position: relative;
+    transition: padding 500ms;
+    -moz-transition: padding 500ms;
+    -webkit-transition: padding 500ms;
+}
+
+.fix {
+    clear: both;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.divdentor {
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-left: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
+    position: absolute;
+    top: -4px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.divisor {
+    height: 1px;
+    width: 100%;
+    margin-top: 10px;
+    border-bottom: 1px solid #e4e4e4;
+    position: relative;
+}
+
+.headwi {
+    border-bottom: 1px solid #3c8dbc;
+    background: #ebebeb;
+    padding: 5px;
+}
+
+    .headwi.primary {
+        margin-top: 20px;
+        border-bottom: none;
+        background: rgba(60, 141, 188, 0.8);
+        color: white;
+        font-weight: 500;
+    }
+
+    .headwi.success {
+        margin-top: 20px;
+        border-bottom: none;
+        background: rgba(0, 166, 90, 0.6);
+        color: white;
+        font-weight: 500;
+    }
+
+    .headwi.danger {
+        margin-top: 20px;
+        border-bottom: none;
+        background: rgba(221, 75, 57, 0.6);
+        color: white;
+        font-weight: 500;
+    }
+
+    .headwi.warning {
+        margin-top: 20px;
+        border-bottom: none;
+        background: rgba(243, 156, 18, 0.6);
+        color: white;
+        font-weight: 500;
+    }
+
+/*AGUARDE*/
+.inProgress {
+    background-color: #333333;
+    filter: alpha(opacity=70);
+    opacity: 0.4;
+    z-index: 18004;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.inProgress2 {
+    padding: 10px 25px;
+    color: black;
+    text-align: center;
+    z-index: 18005;
+    background: white;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    font-size: 14px;
+    border: 1px solid #9a9a9a;
+}
+
+/*DATATABLE_NEW*/
+.dataTables_scrollHead {
+    clear: both;
+}
+
+.dataTables_wrapper .dataTables_scrollHeadInner {
+    width: 100% !important;
+}
+
+    .dataTables_wrapper .dataTables_scrollHeadInner table {
+        margin: 0px !important;
+        width: 100% !important;
+    }
+
+
+.block-noborder {
+    position: relative;
+}
+
+
+    .block-noborder .headwi {
+        height: 34px;
+        line-height: 25px;
+        vertical-align: middle;
+        padding-left: 10px;
+    }
+
+    .block-noborder .dataTables_wrapper .dtFilter {
+        right: 2px;
+        top: 2px;
+    }
+
+        .block-noborder .dataTables_wrapper .dtFilter label input {
+            border: none;
+            height: 30px;
+        }
+
+.dataTables_wrapper .top {
+    color: #adadad;
+    font-size: 11px;
+    font-weight: 400;
+    color: #727272;
+}
+
+.tb-noborder .dataTables_wrapper .top {
+    border-bottom: 1px dashed #e6e6e6;
+    padding: 5px 2px;
+}
+
+.block .dataTables_wrapper .dtFilter {
+    right: 7px;
+}
+
+.dataTables_wrapper .dtFilter {
+    width: 40%;
+    position: absolute;
+    right: 1px;
+    top: 7px;
+}
+
+.dataTables_filter label {
+    width: 100% !important;
+}
+
+.dataTables_length select {
+    width: 70px;
+    text-align: center;
+}
+
+.dataTables_wrapper .dtBottom {
+    margin-top: -10px;
+    position: relative;
+    height: 35px;
+}
+
+.dataTables_length select {
+    width: 70px;
+    text-align: center;
+}
+
+.dataTables_wrapper .dtBottom .dtShowPer {
+    width: 30%;
+}
+
+.dataTables_wrapper .dtBottom .dtPagination {
+    width: 60%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 0px !important;
+}
+
+.dataTables_wrapper .dtBottom .dataTables_info {
+    border-top: 1px solid #dddddd;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.dataTables_wrapper .dtBottom .dtinfo {
+    width: 40%;
+    position: relative;
+    display: block;
+    float: left;
+    text-align: left;
+    margin-bottom: 30px;
+    vertical-align: top;
+    margin-top: 20px;
+}
+
+.dataTables_wrapper .dtFilter2 {
+    width: 30%;
+    position: relative;
+    display: block;
+    float: left;
+    margin-bottom: 3px;
+    border: 1px solid red;
+}
+
+.dataTables_wrapper .dtqtdreg {
+    position: relative;
+    margin-bottom: 5px;
+    border: 1px solid green !important;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    margin-left: 0 !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+}
+
+.dataTables_wrapper .dtBottom .dtPagination .pagination {
+    margin: 0px !important;
+    float: right;
+}
+
+.block-noborder .dtTables {
+    /*overflow-x:scroll;*/
+    width: 100%;
+}
+
+    .block-noborder .dtTables table {
+        margin-bottom: 0px;
+    }
+
+.block-noborder .dtShowPer {
+    margin-top: 12px;
+}
+
+.headertable-primary tr, .ui-datepicker-calendar td a:hover, .headwi.primary {
+    background: rgba(60, 141, 188, 0.5);
+}
+
+/*No-Internal borders in thead*/
+.table .no-border th {
+    border-left: 0;
+}
+
+.table .no-border tr th:first-child {
+    border-left: 1px solid #dadada;
+}
+
+
+/*Tabelas sem bordas*/
+.table-noborder thead > tr > th {
+    border-right: none;
+    border-left: none;
+    border-color: #626262;
+}
+
+.table-noborder thead th:last-child,
+.table-noborder tbody td:last-child {
+    border-right: none;
+}
+
+.table-noborder .table-noborder th,
+.table-noborder td,
+.table-noborder tbody > tr > td {
+    border: none
+}
+
+.table-noborder tr {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.table-noborder tbody tr td {
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.table-noborder tr:nth-child(2n) {
+    background: #f3f3f3;
+}
+
+/*Transparent Buttons*/
+.btn-trans {
+    background-color: #fff;
+    border-color: #CCCCCC;
+    color: #5E5E5E;
+}
+
+    .btn-trans.btn-primary {
+        background-color: #fff;
+        border-color: #afb5b8;
+        color: #afb5b8;
+    }
+
+        .btn-trans.btn-primary:hover,
+        .btn-trans.btn-primary:active {
+            background-color: #afb5b8;
+            color: #fff !important;
+        }
+
+    .btn-trans.btn-success {
+        background-color: #fff;
+        border-color: #288017;
+        color: #288017;
+    }
+
+        .btn-trans.btn-success:hover {
+            background-color: #288017;
+            color: #fff;
+        }
+
+    .btn-trans.btn-info {
+        background-color: #fff;
+        border-color: #4aa3df;
+        color: #4aa3df;
+    }
+
+        .btn-trans.btn-info:hover {
+            background-color: #4aa3df;
+            color: #fff;
+        }
+
+    .btn-trans.btn-warning {
+        background-color: #fff;
+        border-color: #f16e3f;
+        color: #f16e3f;
+    }
+
+        .btn-trans.btn-warning:hover {
+            background-color: #f16e3f;
+            color: #fff;
+        }
+
+    .btn-trans.btn-danger {
+        background-color: #fff;
+        border-color: #be1807;
+        color: #be1807;
+    }
+
+        .btn-trans.btn-danger:hover {
+            background-color: #be1807;
+            color: #fff;
+        }
+
+/*Specific icons size*/
+.btn-xs {
+    padding: 2px 0px;
+    font-size: 11px;
+    width: 25px;
+}
+
+    .btn-xs i {
+        font-size: 12px;
+    }
+
+/*AUTO COMPLETE*/
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 200px;
+    z-index: 10000;
+    position: absolute;
+}
+
+.padding-10px {
+    padding: 10px;
+}
+
+.margin-10px {
+    margin: 10px;
+}
+
+/*CANTINA - NEW*/
+.categoria-produtos {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #999;
+    height: 143px;
+    max-width: 1266px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    cursor: pointer;
+}
+
+.icone-categoria {
+    margin: 25px;
+    width: 94px;
+    height: 91px;
+}
+
+    .icone-categoria > img {
+        margin-left: -10px;
+    }
+
+.lista-produtos {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #999;
+    max-height: 416px;
+    height: 416px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: list-item;
+    cursor: pointer;
+}
+
+.icone-produtos {
+    margin: 25px;
+    min-width: 160px;
+    height: 106px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    float: left;
+    border: 2px dotted rgba(60, 141, 188, 0.5);
+}
+
+.produtos-adicionados {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #999;
+    height: 255px;
+    max-height: 255px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.totais {
+    margin-top: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #999;
+    height: 78px;
+}
+
+.btn-cantina {
+    margin-top: 15px;
+}
+
+.btn-cantina > a {
+    font-size: 17px;
+}
+
+    .btn-cantina > input {
+        font-size: 17px;
+    }
+
+.divValores {
+    border-color: #aaaaaa;
+    border-width: 1px;
+    border-style: solid;
+    margin-top: 1px;
+    color: white;
+    background-color: rgba(60, 141, 188, 0.5);
+    width: 100%;
+}
+
+.divValorTotal {
+    border-color: #aaaaaa;
+    border-width: 1px;
+    border-style: solid;
+    margin-top: 1px;
+    color: white;
+    background-color: #00a65a;
+    width: 100%;
+}
+
+.valores-totais {
+    float: right;
+    font-size: 15px;
+    font-weight: 100 !important;
+}
+
+.totalPagar {
+    font-size: 18px;
+}
+
+.totais-label {
+    font-size: 15px;
+    font-weight: 100 !important;
+}
+
+.imagem-usuario{
+    height: 144px;
+    width: 144px;
+}
+
+/*COMPRA CRÉDITO*/
+
+.img-circle {
+    border-radius: 50%;
+    width: 128PX;
+    height: 128px;
+}
+
+.ibox-produtos {
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+    max-height: 400px;
+    min-height: 400px;
+    overflow: auto;
+}

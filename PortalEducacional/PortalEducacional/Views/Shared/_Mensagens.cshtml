@@ -1,0 +1,20 @@
+﻿@if (TempData["mensagem"] != null)
+{
+    <div class="alert alert-info">
+        Atenção: @TempData["mensagem"]
+    </div>
+}
+@if (ViewBag.resultado != null)
+{
+    <div class="alert alert-info">
+        @{
+            var resultado = ViewBag.resultado;
+            foreach (var mensagem in resultado.Mensagens)
+            {
+                <p>@mensagem.Descricao</p>
+            }
+        }
+    </div>
+}
+<div id="mensagens" class="alert alert-info" hidden>
+</div>

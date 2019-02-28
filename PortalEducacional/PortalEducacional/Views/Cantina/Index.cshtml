@@ -1,0 +1,98 @@
+﻿@model PortalEducacional.Models.ViewModel.CantinaViewModel
+@{
+    ViewData["Title"] = "Epta Educação";
+    Layout = "_Cantina";
+}
+<hr />
+
+<div class="ibox-content">
+    <div class="page-head">
+        <div class="alert alert-success text-center">
+            <div style="font-size: 23px; text-transform: uppercase; font-weight: 700;">Bem Vindo ao WEB CANTINA!</div>
+        </div>
+    </div>
+    <div class="block-clean">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 center">
+                <label class="control-label">Selecione um CLIENTE para iniciar a venda</label><br /><br />
+                <a onclick="OpenModalSelecionaCliente(true);" class="btn  btn-info"><i class="fa fa-user"></i> Cliente</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*MODAL SELECIONA CLIENTE*@
+<div class="modal fade" tabindex="-1" id="modalSelecionaCliente" data-keyboard="false" data-backdrop="false">
+    <form asp-action="Create" method="get">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header-info">
+                    <button type="button" class="close" data-dismiss="modal">
+                        ×
+                    </button>
+                    <h4 class="modal-title">Informe o Cliente</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" asp-for="ClienteID" />
+                    <input type="hidden" asp-for="TipoCliente" />
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <label>Tipo Cliente</label>
+                            <select class="form-control" onchange="PreencheCliente(this)">
+                                <option selected value="0">Selecione</option>
+                                <option value="aluno">ALUNO</option>
+                                <option value="func">FUNCIONÁRIO</option>
+                            </select>
+                        </div>
+                        <div class="fix"></div>
+                        <div class="col-sm-12 col-md-6 col-lg-8" style="padding-top: 10px;">
+                            <label>Nome</label>
+                            <select class="form-control" id="listaCliente" onchange="SelecionaCliente(this)">
+                                <option selected value="0">Selecione</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <br />
+                    <a class="btn btn-default" value="Cancelar" onclick="OpenModalSelecionaCliente(false);">Cancelar</a>
+                    <input type="submit" class="btn btn-success" id="btnHideModal" value="Continuar" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@*MODAL SANGRIA*@
+<div class="modal fade" tabindex="-1" id="modalSangria" data-keyboard="false" data-backdrop="false">
+    <form asp-action="SalvarSangria">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header-danger">
+                    <button type="button" class="close" data-dismiss="modal">
+                        ×
+                    </button>
+                    <h4 class="modal-title">Lançamento de Sangria</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="col-sm-12 col-md-4 col-lg-2">
+                        <label>Valor R$</label>
+                        <input asp-for="SangriaCaixa.Valor" class="form-control monetario" placeholder="R$" id="valorSangria" />
+                    </div>
+                    <div class="col-sm-12 col-md-8 col-lg-10">
+                        <label>Motivo</label>
+                        <input asp-for="SangriaCaixa.Motivo" class="form-control" id="motivoSangria" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <br /><br /><br />
+                    <a class="btn btn-default" value="Cancelar" onclick="OpenModalSangria(false);">Cancelar</a>
+                    <input type="submit" class="btn btn-success" id="btnHideModal" value="Salvar" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

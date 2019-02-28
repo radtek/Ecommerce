@@ -1,0 +1,108 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@model LoginViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    ViewData["Title"] = "Entrar";
+    Layout = "_Login";
+}
+
+@if (TempData["mensagem"] != null)
+{
+    <div class="alert alert-danger">
+        ATENÇÃO! @TempData["mensagem"]
+    </div>
+}
+
+<div class="login-box">
+    <div class="login-box-body">
+        <div class="row">
+            <div class="col-md-12">
+                <section>
+                    <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                        <h4></h4>
+
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group has-feedback">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control">
+                            <span class="text-danger glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label asp-for="Password"></label>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div class="checkbox icheck">
+                                    <label>
+                                        <input type="checkbox"> Manter Logado
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+                            </div>
+                            <div class="col-xs-12">
+                                <p>
+                                    <a asp-action="ForgotPassword">Esqueceu sua senha?</a>
+                                </p>
+                                <p>
+                                    <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Registrar com um novo usuário?</a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                    @*<div class="social-auth-links text-center">
+                            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
+                                <i class="fa fa-facebook"></i> Sign in using
+                                Facebook
+                            </a>
+                            <a href="#" class="btn btn-block btn-social btn-google btn-flat">
+                                <i class="fa fa-google-plus"></i> Sign in using
+                                Google+
+                            </a>
+                        </div>*@
+                </section>
+            </div>
+            @*<div class="col-md-6 col-md-offset-2">
+                    <section>
+                        <h4>Use outro serviço para fazer login.</h4>
+                        <hr />
+                        @{
+                        var loginProviders = (await SignInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+                        if (loginProviders.Count == 0)
+                        {
+                            <div>
+                                <p>
+                                    Não há serviços de autenticação externos configurados. Veja <a href="https://go.microsoft.com/fwlink/?LinkID=532715"> este artigo </a>
+                                    para obter detalhes sobre como configurar esse aplicativo ASP.NET para suportar o logon via serviços externos.
+                                </p>
+                            </div>
+                    }
+                    else
+                    {
+                        <form asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+                            <div>
+                                <p>
+                                    @foreach (var provider in loginProviders)
+                                {
+                                    <button type="submit" class="btn btn-default" name="provider" value="@provider.Name" title="Faça o login usando seu @provider.DisplayName conta">@provider.Name</button>
+                            }
+                                </p>
+                            </div>
+                        </form>
+                }
+                        }
+                    </section>
+                </div>*@
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

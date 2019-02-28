@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-gears"></i> Gerenciamento de Conta</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Configurações</a></li>
+            <li><a href="#" class="color-primary">Dados da Conta</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <div class="fix"></div>
+        <div class="divisor">
+            <div class="divdentor"></div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                @await Html.PartialAsync("_ManageNav")
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
+

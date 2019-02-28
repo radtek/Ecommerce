@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PortalEducacional.Models.EstoqueEmpresa>
+@{
+    ViewData["Title"] = "Estoque";
+}
+
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-align-right"></i> Estoque Disponível</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Estoque</a></li>
+            <li><a href="#" class="color-primary">Estoque Disponível</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <div class="fix"></div>
+        <div class="divisor">
+            <div class="divdentor"></div>
+        </div>
+        <div class="block-noborder">
+            <div class="headwi primary">Lista de Produtos</div>
+            <div class="tb-noborder table-responsive">
+                <table id="tbNutricao" class="table hover table-noborder datatable display">
+                    <thead>
+                        <tr>
+                            <th>Escola</th>
+                            <th>Produto</th>
+                            <th>Saldo Atual</th>
+                            <th>Quantidade Mínima</th>
+                            <th>Quantidade Máxima</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (@Model != null)
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Escola.Nome</td>
+                                    <td>@item.Produto.Codigo - @item.Produto.Descricao</td>
+                                    <td>@item.Saldo</td>
+                                    <td>@item.QuantidadeMinima</td>
+                                    <td>@item.QuantidadeMaxima</td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

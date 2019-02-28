@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Redefinir a chave do autenticador";
+    ViewData.AddActivePage(ManageNavPages.TwoFactorAuthentication);
+}
+
+<h4>@ViewData["Title"]</h4>
+<div class="alert alert-warning" role="alert">
+    <p>
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        <strong>Se você redefinir sua chave de autenticador, o seu aplicativo de autenticação não funcionará até você reconfigurá-lo.</strong>
+    </p>
+    <p>
+        Este processo desativa o 2FA até verificar seu aplicativo de autenticação e também irá redefinir seus códigos de recuperação 2FA.
+        Se você não completar a configuração do seu autenticador, poderá perder o acesso à sua conta.
+    </p>
+</div>
+<div>
+    <form asp-action="ResetAuthenticator" method="post" class="form-group">
+        <button class="btn btn-danger" type="submit">Redefinir a chave do autenticador</button>
+    </form>
+</div>

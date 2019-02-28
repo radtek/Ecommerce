@@ -1,0 +1,52 @@
+﻿<root>
+  <add name="IsZkTitle" value="true" />
+  <add name="systemName" value="" />
+  <add name="Language" value="pt" />
+  <add name="IsOpenListen" value="yes" />
+  <add name="password" value="admin" />
+  <add name="IsListen" value="true" />
+  <add name="data" value="Access" />
+  <add name="ConnectionString" value="" />
+  
+  <chs>
+    <add name="en" value="英文" />
+    <add name="spa" value="西班牙文" />
+    <add name="pt" value="葡萄牙文" />
+  </chs>
+  <en>
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+  </en>
+  <spa>
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+  </spa>
+  <jap>
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+  </jap>
+  <vn>
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+  </vn>
+  <fr>
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+  </fr>
+  <ara>
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+  </ara>
+  <pt>
+    <add name="en" value="English" />
+    <add name="spa" value="Spanish" />
+    <add name="pt" value="Portuguese" />
+  </pt>
+
+</root>

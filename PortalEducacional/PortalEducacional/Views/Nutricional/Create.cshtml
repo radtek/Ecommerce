@@ -1,0 +1,167 @@
+﻿@model PortalEducacional.Models.Nutricional
+@{
+    ViewData["Title"] = "Novo";
+}
+<hr />
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-heartbeat"></i> Cadastro de Avaliação</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Nutricional</a></li>
+            <li><a href="#" class="color-primary">Avaliação Nutricional</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <form asp-action="Create">
+            <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+                <a asp-action="Index" class="btn btn-default">Cancelar</a>
+                <input type="submit" id="Salvar" value="Salvar" class="btn btn-success" tabindex="9" />
+            </div>
+            <div class="fix"></div>
+            <div class="divisor">
+                <div class="divdentor"></div>
+            </div>
+            @*DADOS ALUNO*@
+            <div class="row">
+                <h5 class="headwi primary">Dados Aluno</h5>
+                <div class="form-horizontal group-border-dashed">
+                    <input asp-for="Aluno.EscolaID" type="hidden" />
+                    @Html.EditorFor(model => model.Aluno.Escola)
+
+                    <input asp-for="AlunoID" type="hidden" />
+                    @Html.EditorFor(model => model.Aluno)
+
+                    <div class="form-group col-sm-4 col-md-4 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label class="control-label">Série</label>
+                        <input class="form-control" id="Serie" readonly="@(true)" tabindex="3" />
+                    </div>
+
+                    <div class="form-group col-sm-4 col-md-4 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label class="control-label">Nascimento</label>
+                        <input class="form-control" id="Nascimento" readonly="@(true)" tabindex="4" />
+                    </div>
+
+                    <div class="form-group col-sm-4 col-md-4 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label class="control-label">Sexo</label>
+                        <input class="form-control" id="Sexo" readonly="@(true)" tabindex="5" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h5 class="headwi primary">Avaliação Nutricional</h5>
+
+                <div class="form-horizontal group-border-dashed">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Peso" class="control-label"></label>
+                        <input asp-for="Peso" class="form-control mask-peso" tabindex="6" />
+                        <span asp-validation-for="Peso" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Altura" class="control-label"></label>
+                        <input asp-for="Altura" class="form-control mask-altura" onblur="CalculoIMC();" tabindex="7" />
+                        <span asp-validation-for="Altura" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-5 col-md-4 col-lg-3">
+                        <label asp-for="Resultado" class="control-label"></label>
+                        <input asp-for="Resultado" class="form-control" readonly="@(true)" tabindex="8" />
+                        <span asp-validation-for="Resultado" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-md-3 col-lg-2">
+                        <label asp-for="DataCadastro" class="control-label"></label>
+                        <input asp-for="DataCadastro" class="form-control" readonly="@(true)" />
+                        <span asp-validation-for="DataCadastro" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-12 col-md-12 col-lg-12">
+                        <label asp-for="Descricao" class="control-label"></label>
+                        <textarea asp-for="Descricao" class="form-control" id="Descricao" name="Descricao" cols="40" rows="3" maxlength="200" tabindex="11"></textarea>
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                    </div>
+
+                    @*TABELA*@
+                    @*<div class="form-group col-sm-2 col-md-2 col-lg-2">
+                            <table class="table">
+                                <tr>
+                                    <td rowspan="2" align="center" style="vertical-align:middle;" class="h-2">
+                                        Fórmula Utilizada IMC =
+                                    </td>
+                                    <td height="30" style="border-bottom:1px solid #CCC; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:15px; font-weight:bold; color:#124b97;">Peso (Kg)</td>
+                                </tr>
+                                <tr>
+                                    <td height="30" style="border-bottom:1px solid #ffffff; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:15px; font-weight:bold; color:#124b97;">Altura<sup>2</sup> (m<sup>2</sup>)</td>
+                                </tr>
+                            </table>
+                        </div>*@
+                </div>
+                <br />
+                <br />
+                <br />
+            </div>
+            @*<div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <table class="table table-bordered table-striped center">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-6 col-md-6 col-lg-6 center"><strong>CÁLCULO IMC</strong></th>
+                                        <th class="col-sm-6 col-md-6 col-lg-6 center"><strong>SITUAÇÃO</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Abaixo de 18,5</td>
+                                        <td>Você está abaixo do peso ideal</td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td>Entre 18,5 e 24,9</td>
+                                        <td>Parabéns — você está em seu peso normal!</td>
+                                    </tr>
+                                    <tr class="warning">
+                                        <td>Entre 25,0 e 29,9</td>
+                                        <td>Você está acima de seu peso (sobrepeso)</td>
+                                    </tr>
+                                    <tr class="info">
+                                        <td>Entre 30,0 e 34,9</td>
+                                        <td>Obesidade grau I</td>
+                                    </tr>
+                                    <tr class="success">
+                                        <td>Entre 35,0 e 39,9</td>
+                                        <td>Obesidade grau II</td>
+                                    </tr>
+                                    <tr class="danger">
+                                        <td>40,0 e acima</td>
+                                        <td>Obesidade grau III</td>
+
+                                    </tr>
+                                    <tr></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>*@
+            <br />
+        </form>
+    </div>
+</div>
+<div class="inProgress" id="inProgress" style="display: none;">
+</div>
+<div class="inProgress2" id="inProgress2" style="display: none;">
+    <span class="color-primary" style="font-size: 25px"><i class="fa fa-spinner fa-spin"></i></span>
+    <br />
+    <span class="color-primary">Aguarde...</span>
+</div>
+<div id="result"></div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

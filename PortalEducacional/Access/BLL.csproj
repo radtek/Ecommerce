@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{42F7E287-A5C1-4846-A466-0232DA462DB8}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Framework">
+      <HintPath>D:\Programas\EPTA\Access\bin\Debug\Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Utils">
+      <HintPath>D:\Programas\EPTA\Access\bin\Debug\Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Model">
+      <HintPath>D:\Programas\EPTA\Access\bin\Debug\Model.dll</HintPath>
+    </Reference>
+    <Reference Include="IDAL">
+      <HintPath>D:\Programas\EPTA\Access\bin\Debug\IDAL.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>D:\Programas\EPTA\Access\bin\Debug\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="ZKTimeNet.AccessDataClass">
+      <HintPath>D:\Programas\EPTA\Access\bin\Debug\ZKTimeNet.AccessDataClass.dll</HintPath>
+    </Reference>
+    <Reference Include="ConfigManager">
+      <HintPath>D:\Programas\EPTA\Access\bin\Debug\ConfigManager.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlDbDAL">
+      <HintPath>D:\Programas\EPTA\Access\bin\Debug\SqlDbDAL.dll</HintPath>
+    </Reference>
+    <Reference Include="OleDbDAL">
+      <HintPath>D:\Programas\EPTA\Access\bin\Debug\OleDbDAL.dll</HintPath>
+    </Reference>
+    <Reference Include="DBUtility">
+      <HintPath>D:\Programas\EPTA\Access\bin\Debug\DBUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="ZKTimeNet.AccessDataSync">
+      <HintPath>D:\Programas\EPTA\Access\bin\Debug\ZKTimeNet.AccessDataSync.dll</HintPath>
+    </Reference>
+    <Reference Include="MachinesManager">
+      <HintPath>D:\Programas\EPTA\Access\bin\Debug\MachinesManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZK.Data.BLL.MICardReader\CardReader.cs" />
+    <Compile Include="ZK.Data.BLL.MICardReader\PasswordManager.cs" />
+    <Compile Include="ZK.Data.BLL.MICardReader\ReadCardErrorType.cs" />
+    <Compile Include="ZK.Data.BLL.MICardReader\ReaderAPI.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\DeviceParamBll.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\DeviceServerBll.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\FaceTempBll.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\FirstCardBll.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\FVTemplateBll.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\HolidayBll.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\InOutFunBll.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\MultimCardBll.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\TemplateV10Bll.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\TimeZoneBll.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\TransActionBll.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\UserAuthorizeBll.cs" />
+    <Compile Include="ZK.Data.BLL.PullSDK\UserBll.cs" />
+    <Compile Include="ZK.Data.BLL.UDisk\UDiskBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccAntibackBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccAuxiliaryBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccDoorBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccFirstOpenBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccFirstOpenEmpBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccHolidaysBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccInterlockBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccLevelsetBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccLevelsetDoorGroupBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccLevelsetEmpBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccLinkAgeIoBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccMapBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccMapdoorposBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccMonitorLogBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccMorecardempGroupBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccMorecardGroupBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccMorecardsetBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccReaderBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccTimesegBll.cs" />
+    <Compile Include="ZK.Data.BLL\AccWiegandfmtBll.cs" />
+    <Compile Include="ZK.Data.BLL\ActionLogBll.cs" />
+    <Compile Include="ZK.Data.BLL\AlarmLogBll.cs" />
+    <Compile Include="ZK.Data.BLL\AreaAdminBll.cs" />
+    <Compile Include="ZK.Data.BLL\AttParamBll.cs" />
+    <Compile Include="ZK.Data.BLL\AuthGroupBll.cs" />
+    <Compile Include="ZK.Data.BLL\AuthUserBll.cs" />
+    <Compile Include="ZK.Data.BLL\CheckInOutBll.cs" />
+    <Compile Include="ZK.Data.BLL\CustomReportBLL.cs" />
+    <Compile Include="ZK.Data.BLL\DbBackUpLogBll.cs" />
+    <Compile Include="ZK.Data.BLL\DepartmentsBll.cs" />
+    <Compile Include="ZK.Data.BLL\DeptAdminBll.cs" />
+    <Compile Include="ZK.Data.BLL\DevCmdsBll.cs" />
+    <Compile Include="ZK.Data.BLL\FaceTempBll.cs" />
+    <Compile Include="ZK.Data.BLL\FingerVeinBll.cs" />
+    <Compile Include="ZK.Data.BLL\IClockDsTimeBll.cs" />
+    <Compile Include="ZK.Data.BLL\LevelDataClassBll.cs" />
+    <Compile Include="ZK.Data.BLL\MachinesBll.cs" />
+    <Compile Include="ZK.Data.BLL\PersonnelAreaBll.cs" />
+    <Compile Include="ZK.Data.BLL\PersonnelIssuecardBll.cs" />
+    <Compile Include="ZK.Data.BLL\ReportFieldBLL.cs" />
+    <Compile Include="ZK.Data.BLL\STD_WiegandFmtBll.cs" />
+    <Compile Include="ZK.Data.BLL\SystemLogBll.cs" />
+    <Compile Include="ZK.Data.BLL\TemplateBll.cs" />
+    <Compile Include="ZK.Data.BLL\UserInfoBll.cs" />
+    <Compile Include="ZK.Data.BLL\VisitInfoBll.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

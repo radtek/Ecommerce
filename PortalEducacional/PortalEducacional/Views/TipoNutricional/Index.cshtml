@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PortalEducacional.Models.TipoNutricional>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-cutlery"></i> Tipo Nutricional</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Cadastros</a></li>
+            <li><a href="#" class="color-primary">Cadastro de Tipo Nutricional</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+            <a class="btn btn-primary" asp-action="Create"><i class="fa fa-plus"></i> Novo</a>
+        </div>
+        <div class="fix"></div>
+        <div class="divisor">
+            <div class="divdentor"></div>
+        </div>
+        <div class="block-noborder">
+            <div class="headwi primary">Lista de Produtos</div>
+            <div class="tb-noborder table-responsive">
+                <table class="table hover table-noborder datatable display">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayName("Ações")</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.TipoNutricionalID" class="btn btn-success btn-trans btn-xs" data-placement="top" data-toggle="tooltip" data-original-title="Editar"><i class="fa fa-pencil"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.TipoNutricionalID" class="btn btn-danger btn-trans btn-xs" data-placement="top" data-toggle="tooltip" data-original-title="Excluir"><i class="fa fa-remove"></i></a>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<PortalEducacional.Models.ApplicationUser>
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-user-plus"></i> Usuário</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Cadastros</a></li>
+            <li><a href="#" class="color-primary">Cadastro de Usuário</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+            <a class="btn btn-primary" asp-action="Create"><i class="fa fa-plus"></i> Novo</a>
+        </div>
+        <div class="fix"></div>
+        <div class="divisor">
+            <div class="divdentor"></div>
+        </div>
+        <div class="block-noborder">
+            <div class="headwi primary">Lista de Usuários</div>
+            <div class="tb-noborder table-responsive">
+                <table class="table hover table-noborder datatable display">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayName("Ações")</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <th>@Html.DisplayName("Escola")</th>
+                            <th>@Html.DisplayName("E-mail")</th>
+                            <th>@Html.DisplayName("Perfil")</th>
+                            <th>
+                                @Html.DisplayName("Status")
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-trans btn-xs" data-placement="top" data-toggle="tooltip" data-original-title="Editar"><i class="fa fa-pencil"></i></a>
+                                    @if (User.Identity.Name != item.Email)
+                                    {
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-trans btn-xs" data-placement="top" data-toggle="tooltip" data-original-title="Excluir"><i class="fa fa-remove"></i></a>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Escola.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @if (item.Perfil == null)
+                                    {
+                                        @if (item.Master)
+                                        {
+                                            @Html.DisplayName("MASTER")
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayFor(modelItem => item.Perfil.Nome)
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Ativo)
+                                    {
+                                        @Html.DisplayName("ATIVO")
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayName("INATIVO")
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

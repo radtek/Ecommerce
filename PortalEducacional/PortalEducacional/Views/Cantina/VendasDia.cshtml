@@ -1,0 +1,266 @@
+﻿@model PortalEducacional.Models.ViewModel.CantinaViewModel
+@{
+    ViewData["Title"] = "Epta Educação";
+    Layout = "_Cantina";
+}
+<hr />
+
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-bar-chart"></i> Vendas do Dia</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Cantina</a></li>
+            <li><a href="#" class="color-primary">Vendas do Dia</a></li>
+        </ol>
+    </div>
+
+    <div class="block-clean">
+        <div class="block-noborder">
+            <div class="col-sm-6 no-padding"></div>
+            <div class="col-sm-3 no-padding" style="padding-right: 5px !important; margin-top: -100px !important">
+                <div class="panel panel-success">
+                    <div class="panel-heading center" style="font-size: 18px">
+                        <div class="col-sm-5 no-padding left">
+                            <i class="fa fa-money"></i>
+                        </div>
+                        <div class="col-sm-7 no-padding left">
+                            <label>Recebido</label>
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+                    <div class="panel-body" style="padding: 5px">
+                        <div class="col-sm-6 no-padding">
+                            <label style="font-weight: 400">Total Bruto</label>
+                        </div>
+                        <div class="col-sm-6 no-padding right">
+                            <strong>
+                                <label runat="server" CssClass="right">@Html.DisplayFor(model => model.ValorTotalBruto)</label>
+                            </strong>
+                        </div>
+                        <div class="fix"></div>
+                        <div class="divisor no-margin"></div>
+                        <div class="col-sm-6 no-padding">
+                            <label style="font-weight: 400">Total Líquido</label>
+                        </div>
+                        <div class="col-sm-6 no-padding right">
+                            <strong>
+                                <label runat="server" CssClass="right">@Html.DisplayFor(model => model.ValorTotalLiquido)</label>
+                            </strong>
+                        </div>
+                        <div class="fix"></div>
+                        <div class="divisor no-margin"></div>
+                        <div class="col-sm-6 no-padding">
+                            <label style="font-weight: 400">Total Descontos</label>
+                        </div>
+                        <div class="col-sm-6 no-padding right">
+                            <strong>
+                                <label runat="server" CssClass="right">@Html.DisplayFor(model => model.ValorTotalDesconto)</label>
+                            </strong>
+                        </div>
+                        <div class="fix"></div>
+                        <div class="divisor no-margin"></div>
+                        <div class="col-sm-6 no-padding">
+                            <label style="font-weight: 400">Qtde Pedido</label>
+                        </div>
+                        <div class="col-sm-6 no-padding right">
+                            <strong>
+                                <label runat="server" CssClass="right">@Html.DisplayFor(model => model.QtdePedidos)</label>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 no-padding" style="padding-right: 5px !important; margin-top: -100px;">
+                <div class="panel panel-danger">
+                    <div class="panel-heading center" style="font-size: 18px">
+                        <div class="col-sm-4 no-padding left">
+                            <i class="fa fa-remove"></i>
+                        </div>
+                        <div class="col-sm-8 no-padding left">
+                            <label>Sangrias Caixa</label>
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+                    <div class="panel-body" style="padding: 5px">
+                        <div class="col-sm-6 no-padding">
+                            <label style="font-weight: 400">Valor Total</label>
+                        </div>
+                        <div class="col-sm-6 no-padding right">
+                            <strong>
+                                <label runat="server" CssClass="right">@Html.DisplayFor(model => model.ValorTotalSangria)</label>
+                            </strong>
+                        </div>
+                        <div class="fix"></div>
+                        <div class="divisor no-margin"></div>
+                        <div class="col-sm-6 no-padding">
+                            <label style="font-weight: 400">Qtde Sangria</label>
+                        </div>
+                        <div class="col-sm-6 no-padding right">
+                            <strong>
+                                <label runat="server" CssClass="right">@Html.DisplayFor(model => model.QtdeSangrias)</label>
+                            </strong>
+                        </div>
+                        <div class="fix"></div>
+                        <div class="divisor no-margin"></div>
+                        <div class="col-sm-6 no-padding">
+                            <label style="font-weight: 400"></label>
+                        </div>
+                        <div class="col-sm-6 no-padding right">
+                            <strong>
+                                <label runat="server" CssClass="right"></label>
+                            </strong>
+                        </div>
+                        <div class="fix"></div>
+                        <div class="divisor no-margin"></div>
+                        <div class="col-sm-6 no-padding">
+                            <label style="font-weight: 400"></label>
+                        </div>
+                        <div class="col-sm-6 no-padding right">
+                            <strong>
+                                <label runat="server" CssClass="right"></label>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fix"></div>
+
+            <h5 class="headwi primary">Lista de Lançamentos</h5>
+            <div class="tb-noborder table-responsive">
+                <table class="table hover table-noborder">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>@Html.DisplayName("Pedido")</th>
+                            <th>@Html.DisplayName("Cliente")</th>
+                            <th>@Html.DisplayName("Data")</th>
+                            <th>@Html.DisplayName("R$ Desconto")</th>
+                            <th>@Html.DisplayName("R$ Valor Total")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            @foreach (var item in Model.ListaCaixaMovimento)
+                            {
+                                @if (item.Pedido == null)
+                                {
+                                    <tr>
+                                        <td></td>
+                                        <td>@Html.DisplayName("Sangria")</td>
+
+                                        <td><b>MOTIVO:</b> @Html.DisplayFor(modelItem => item.SangriaCaixa.Motivo)</td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SangriaCaixa.DataCadastro)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayName("0")
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SangriaCaixa.Valor, "{0:c}")
+                                        </td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr id="@($"LinhaTR{item.PedidoID}")">
+                                        <td>
+                                            <a onclick="VisibleVendasDia(this);" id="@($"mais{item.PedidoID}")" class="btn btn-info btn-trans btn-xs"><i class="fa fa-plus"></i></a>
+                                            <a onclick="VisibleVendasDia(this);" id="@($"menos{item.PedidoID}")" class="btn btn-info btn-trans btn-xs" style="display: none;"><i class="fa fa-minus"></i></a>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Pedido.Numero)
+                                        </td>
+                                        <td>
+                                            @if (item.Pedido.Aluno != null)
+                                            {
+                                                @Html.DisplayFor(modelItem => item.Pedido.Aluno.Nome)
+                                                @Html.DisplayName(" (Aluno)")
+                                            }
+                                            else
+                                            {
+                                                @Html.DisplayFor(modelItem => item.Pedido.Funcionario.Nome)
+                                                @Html.DisplayName(" (Funcionário)")
+                                            }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Pedido.DataCadastro)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Pedido.Desconto)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Pedido.ValorTotal, "{0:c}")
+                                        </td>
+                                    </tr>
+                                    <tr id="@($"LinhaItens{item.PedidoID}")" style="display: none">
+                                        <td></td>
+                                        <td colspan="5">
+                                            <table class="table table-noborder" id="tbody-vendasDia">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>@Html.DisplayName("Produto")</th>
+                                                        <th>@Html.DisplayName("Quantidade")</th>
+                                                        <th>@Html.DisplayName("R$ Desconto")</th>
+                                                        <th>@Html.DisplayName("R$ Valor Unitário")</th>
+                                                    </tr>
+                                                </thead>
+                                                @foreach (var item2 in item.Pedido.ListaItens)
+                                                {
+                                                    <tbody>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td>@Html.DisplayFor(modelProd => item2.Produto.Codigo) - @Html.DisplayFor(modelPr => item2.Produto.Descricao)</td>
+                                                            <td>@Html.DisplayFor(modelProd => item2.Quantidade)</td>
+                                                            <td>@Html.DisplayFor(modelProd => item2.Desconto, "{0:C}")</td>
+                                                            <td>@Html.DisplayFor(modelProd => item2.Valor, "{0:c}")</td>
+                                                        </tr>
+                                                    </tbody>
+                                                }
+                                            </table>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@*MODAL SANGRIA*@
+<div class="modal fade" tabindex="-1" id="modalSangria" data-keyboard="false" data-backdrop="false">
+    <form asp-action="SalvarSangria">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header-danger">
+                    <button type="button" class="close" data-dismiss="modal">
+                        ×
+                    </button>
+                    <h4 class="modal-title">Lançamento de Sangria</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="col-sm-12 col-md-4 col-lg-2">
+                        <label>Valor R$</label>
+                        <input asp-for="SangriaCaixa.Valor" class="form-control monetario" placeholder="R$" id="valorSangria" />
+                    </div>
+                    <div class="col-sm-12 col-md-8 col-lg-10">
+                        <label>Motivo</label>
+                        <input asp-for="SangriaCaixa.Motivo" class="form-control" id="motivoSangria" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <br /><br /><br />
+                    <a class="btn btn-default" value="Cancelar" onclick="OpenModalSangria(false);">Cancelar</a>
+                    <input type="submit" class="btn btn-success" id="btnHideModal" value="Salvar" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

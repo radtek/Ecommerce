@@ -1,0 +1,145 @@
+﻿@model IEnumerable<PortalEducacional.Models.Aluno>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-mortar-board"></i> Aluno</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Cadastros</a></li>
+            <li><a href="#" class="color-primary">Cadastro de Aluno</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+            <a class="btn btn-primary" asp-action="Create"><i class="fa fa-plus"></i> Novo</a>
+        </div>
+        <div class="fix"></div>
+        <div class="divisor">
+            <div class="divdentor"></div>
+        </div>
+
+        <h5 class="headwi primary">Filtros</h5>
+        <div style="margin-top: 15px;">
+            <div class="form-group col-sm-12 col-md-4 col-lg-3">
+                <label class="control-label">Escola</label>
+                <select class="form-control" id="EscolaID" asp-items="(SelectList)ViewBag.Escola"></select>
+            </div>
+            <div class="form-group col-sm-12 col-md-4 col-lg-3">
+                <label class="control-label">Aluno</label>
+                <input class="form-control" id="AlunoNome" />
+            </div>
+            <div class="form-group col-sm-6 col-md-3 col-lg-2">
+                <label class="control-label">Série</label>
+                <select class="form-control" id="SerieID" asp-items="(SelectList)ViewBag.Serie">
+                    <option value="0"> TODOS</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-3 col-md-3 col-lg-2">
+                <label class="control-label">Sexo</label>
+                <select class="form-control" id="Sexo">
+                    <option value="M">MASCULINO</option>
+                    <option value="F">FEMININO</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                <label class="control-label">Status</label>
+                <select class="form-control" id="Ativo">
+                    <option value="0"> TODOS</option>
+                    <option value="true">ATIVO</option>
+                    <option value="false">INATIVO</option>
+                </select>
+            </div>
+            <div class="col-sm-2 col-col-md-3 col-lg-1" style="margin-top: 18px;">
+                <a class="btn btn-trans btn-info" id="btnPesquisar" onclick="PesquisarAluno()"><i class="fa fa-search"></i> Pesquisar</a>
+            </div>
+        </div>
+        <div class="fix"></div>
+        <div class="divisor">
+            <div class="divdentor"></div>
+        </div>
+
+        <div class="block-noborder">
+            <div class="headwi primary">Lista de Alunos</div>
+            <div class="tb-noborder table-responsive">
+                <table class="table hover table-noborder datatable display">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayName("Ações")</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Serie.Descricao)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Ra)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Escola)
+                            </th>
+                            <th>@Html.DisplayName("Status")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.AlunoID" class="btn btn-success btn-trans btn-xs" data-placement="top" data-toggle="tooltip" data-original-title="Editar"><i class="fa fa-pencil"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@item.AlunoID" class="btn btn-danger btn-trans btn-xs" data-placement="top" data-toggle="tooltip" data-original-title="Excluir"><i class="fa fa-remove"></i></a>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Serie.Descricao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ra)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Escola.Nome)
+                                </td>
+                                <td>
+                                    @if (item.Ativo)
+                                    {
+                                        @Html.DisplayName("ATIVO");
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayName("INATIVO");
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="inProgress" id="inProgress" style="display: none;">
+</div>
+<div class="inProgress2" id="inProgress2" style="display: none;">
+    <span class="color-primary" style="font-size: 25px"><i class="fa fa-spinner fa-spin"></i></span>
+    <br />
+    <span class="color-primary">Aguarde...</span>
+</div>
+<div id="result"></div>
+<script type="text/javascript">
+
+    function PesquisarAluno() {
+
+    var selecionadoEscola = $("#EscolaID").val();
+    var selecionadoSerie = $("#SerieID").val();
+    var textoAluno = $("#AlunoNome").val();
+    var sexo = $("#Sexo option:selected").val();
+    var status = $("#Ativo option:selected").val();
+    var boPesquisar = true;
+
+        var url = '@Html.Raw(Url.Action("Index", "Aluno"))?idEscola=' + selecionadoEscola + '&idSerie=' + selecionadoSerie + '&Aluno=' + textoAluno + '&Sexo=' + sexo + '&Ativo=' + status + '&boPesquisar=' + boPesquisar;
+    window.location = url;
+    }
+</script>

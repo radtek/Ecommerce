@@ -1,0 +1,91 @@
+﻿SoapAdmin3.5_Pacote-0.13 09.02.2017
+- Adicionada mensagem que avisa sobre o limite de períodos que os dispositivos SDT SDK tem, na tela de Perfil e Zonas de tempo.
+======================================================
+======================================================
+
+SoapAdmin3.5_Pacote-0.12 18.12.2017
+
+ - Inclusão de campo de observação referente a funcionalidade da data de validade do cadastro de usuários;
+ - Ajustes no manual online e diagramado sobre:
+	
+	1.Validade de ususários e visitante não habilitado para dispositivos STD SDK.
+	2.Feriado não habilitado para dispositivos STD SDK;
+	4.Encerramento de visitas automático (Leitor funciona como coletor de cartões RFID), habilitado apenas para dispositivos Pull SDK (com Monitoramento ativado).
+	5.Leitor funciona como coletor de cartões RFID (função disponível apenas para equipamentos Pull SDK).
+	6.Oservação para encerramento de visista manualmente para equipamentos STD SDK.
+	7.Observações quanto á configuração de máquina cliente.
+	8. Revisões gerais períódicas.
+	9. Inclusão dos termos de uso no manual diagramado do software.
+======================================================
+======================================================
+
+
+SoapAdmin3.5_Pacote-0.11.1 31.10.2017
+
+ - Inclusão das informações referentes ao módulo visistantes no manual de ususários online.
+======================================================
+======================================================
+
+SoapAdmin3.5_Pacote-0.11 29.09.2017
+
+- Correção da tradução da quantidade de dígitos suportados pela senha de coação.
+- Correção da tradução do opção "Selecione" para "Qualquer" no método de autenticação da porta.
+- Inclusão do botão de apagar a foto no cadastro de usuário.
+- Travamento do tamanho de upload de imagem para o valor sugerido na tela de cadastro de usuários e visistantes. 
+- Ajuste de manual descrevendo melhor a relação entre zonas de tempo versus período e quantidade suportada.
+-Ajuste de tradução das janelas de versão de biometria na tela de principal de ususários.
+ - Atualização do termo de serviço no pacote de instalação do software.
+============================================================================================================
+SoapAdmin3.5_Pacote-0.10.1 07.08.2017
+
+- Correção da tradução de Inicialização de Sistema.
+- Correção da tradução das janelas de avisos.
+- Correção do bug de exibição da senha na aba "detalhes.
+ - Correção da perca do vínculo da zona de tempo ao restaurar sistema.
+============================================================================================================
+SoapAdmin3.5_Pacote-0.10 27.07.2017
+- Implementação Reset de fábrica para dispositivos
+- Módulo Visitantes liberado.
+- Correção de tradução opção "Qualquer" em configuração de portas.
+- Correção de tradução de "Zona de tempo da porta ativa"
+- Alteração e atualização do manual.
+- Correção da tradução de Inicialização de Sistema.
+- Correção da tradução das janelas de avisos.
+- Correção do bug de exibição da senha na aba "detalhes.
+ - Correção da perca do vínculo da zona de tempo ao restaurar sistema.
+============================================================================================================
+SoapAdmin3.5_Pacote-0.8 30.05.2017
+- Reescrita e reformulação de todo o Manual do Uusário
+- Alteração de toda a tradução dos botões, funções e mensagens do software.
+-Correção de bugs relacionados a banco de dados e execução.
+- Backup do banco de dados automatico ao fechar o software.
+======================================================
+======================================================
+SoapAdmin3.5_Pacote-0.7.02.05.2017
+- Reescrita e reformulação de todo o Manual do Uusário
+- Alteração de toda a tradução dos botões, funções e mensagens do software.
+=================================================================================================================================
+SoapAdmin3.5_Pacote-0.6.03.03.2017
+- No cadastro de usuários o botão de apagar imagem agora funciona
+- Alterado o manual na parte de cadastro de usuários
+
+=================================================================================================================================
+SoapAdmin3.5_Pacote-0.5.23.02.2017
+- Corrigido problema na webcam
+- Alterado manual no manual o item "8.2.1. Processo de Cadastro de Usuário". Para corrigir fluxo para cadastro de dedo de coação
+- Traduzidas mais algumas mensagens de Chinês para Português
+
+=================================================================================================================================
+SoapAdmin3.5_Pacote-0.4
+- Melhorado o texto de algumas interfaces
+- Malhorada a tela de monitoramento
+
+=================================================================================================================================
+SoapAdmin3.5_Pacote-0.3
+- Melhorado o texto de algumas interfaces do software deixando mais claro o que significa.
+
+=================================================================================================================================
+SoapAdmin3.5_Pacote-0.1
+- Incluído o SP.exe para suporte via teamviewer8
+- Melhorado o texto de algumas interfaces do software deixando mais claro o que significa.
+- Atualizado o Help para a versão 0.2 com correções nas imagens e melhorado a explicação de algumas funções. 

@@ -1,0 +1,33 @@
+﻿@model PortalEducacional.Models.Endereco
+
+<div id="endereco">
+    <input asp-for="EnderecoId" type="hidden" />
+    <div class="form-group col-sm-3 col-md-2 col-lg-2">
+        <strong class="obg">*</strong>
+        <label asp-for="CEP" class="control-label"></label>
+        <input asp-for="CEP" class="form-control mask-cep cep" />
+    </div>
+
+    <div class="form-group col-sm-8 col-md-6 col-lg-5">
+        <strong class="obg">*</strong>
+        <label asp-for="Logradouro" class="control-label"></label>
+        <input asp-for="Logradouro" class="form-control" readonly />
+    </div>
+    <div class="form-group col-sm-3 col-md-2 col-lg-2">
+        <strong class="obg">*</strong>
+        <label asp-for="Numero" class="control-label"></label>
+        <input asp-for="Numero" class="form-control" />
+    </div>
+    <div class="form-group col-sm-4 col-md-4 col-lg-3">
+        <label asp-for="Complemento" class="control-label"></label>
+        <input asp-for="Complemento" class="form-control" />
+    </div>
+
+    <div class="form-group col-sm-5 col-md-4 col-lg-3">
+        <strong class="obg">*</strong>
+        <label asp-for="Bairro" class="control-label"></label>
+        <input asp-for="Bairro" class="form-control" readonly />
+    </div>
+
+    @Html.EditorFor(model => model.Cidade)
+</div>

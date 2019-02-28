@@ -1,0 +1,32 @@
+[LanguageOptions]
+FontName=MS Sans Serif
+FontSize=8
+FontCharSet=1
+LCDFontSize=9
+
+[MSGResource]
+sSelectFingerToRegister  =Please Select finger
+sFingerprintQualityIsPoor= quality is poor!\r\nremaining times:
+sPressFinger = Press finger flatware\r\nremain time:
+sRegisterSuccess = Succeed in fingerprint registration
+sRegisterfailed  = failed in fingerprint registration
+sDeleteFingerprint = Delete Existing selected finger's fingerprint?
+sNotInstallDriver = Install fingerprint sensor driver
+sNotConnectSensor = Not connect with sensor
+sInitializationfailed = failed in initializing sensor
+sCancelFingerprintChanged = Existing fingerprint data has been changed, whether save these?
+sSelectFingerToVerify  = Press finger flatware
+sVerFingerprintQualityIsPoor = Fingerprint quality is poor!
+sFeatureOk = Succeed in selecting fingerprint module
+sImageReceivedOK = Succeed in receiving fingerprint
+sFingerVerifing = Verifying fingerprint
+sVerifySucceed = Succeed in verifying fingerprint
+sVerifyFailed = faileded in verifying fingerprint
+sRegisterTitle = Fingerprint registration
+sVerifyTitle   = Fingerprint verification
+sBtnOK=OK
+sBtnCancel=Cancel
+sFPDataErr=Fingerprint enroll data error!
+sOverTime=Probation period is due!
+sDuressCheck=Duress Fingerprint
+sNoLic=No 10.0 Algorithm Licence

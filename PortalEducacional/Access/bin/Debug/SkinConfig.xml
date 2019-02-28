@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<ImageGroup>
+		<Image name="header"></Image>
+    <Image name="Companies"></Image>
+    <Image name="Department"></Image>
+    <Image name="Employees"></Image>
+    <Image name="PayClass"></Image>
+    <Image name="PayCode"></Image>
+    <Image name="Shifts"></Image>
+    <Image name="Holiday"></Image>
+    <Image name="Schedule"></Image>
+    <Image name="WorkState"></Image>
+    <Image name="WorkCode"></Image>
+    <Image name="Guide"></Image>
+  </ImageGroup>
+	<BackColor>
+		<value name="MenuOneBackColor"></value>
+    <value name="GridBackColor"></value>
+    <value name="GridSelectRowColor"></value>
+  </BackColor>
+	<ForeColor>
+		<value name="MenuTwoForeColor"></value>
+	</ForeColor>
+	<Font>
+		<value name="MenuOneFont"></value>
+		<value name="MenuTwoFont"></value>		
+	</Font>
+</root>

@@ -1,0 +1,83 @@
+﻿@model PortalEducacional.Models.Escola
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<hr />
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-university"></i> Editar Escola</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Cadastros</a></li>
+            <li><a href="#" class="color-primary">Editar Escola</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="EscolaID" />
+            <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+                <a asp-action="Index" class="btn btn-default">Cancelar</a>
+                <input type="submit" value=" Salvar" class="btn btn-success" id="btnSalvar" />
+            </div>
+            <div class="fix"></div>
+            <div class="divisor">
+                <div class="divdentor"></div>
+            </div>
+            <div class="row">
+                <h5 class="headwi primary">Identificação da Escola</h5>
+                <div class="form-horizontal group-border-dashed">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group col-sm-4 col-md-3 col-lg-2">
+                        <strong class="obg">*</strong>
+                        <label asp-for="CNPJ" class="control-label"></label>
+                        <input asp-for="CNPJ" class="form-control mask-cnpj" />
+                        <span asp-validation-for="CNPJ" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-7 col-md-7 col-lg-7">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Nome" class="control-label"></label>
+                        <input asp-for="Nome" class="form-control" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                        <label asp-for="Telefone" class="control-label">Telefone</label>
+                        <input asp-for="Telefone" class="form-control mask-telefone" />
+                    </div>
+                    <div class="fix"></div>
+
+                    @*ENDEREÇO*@
+                    <input asp-for="EnderecoId" type="hidden" />
+                    @Html.EditorFor(model => model.Endereco)
+
+                    <div class="fix"></div>
+                    <div class="form-group col-sm-5 col-md-4 col-lg-3">
+                        <label class="control-label">E-mail</label>
+                        <input asp-for="Email" class="form-control" />
+                    </div>
+                    <div class="form-group col-sm-6 col-md-3 col-lg-2">
+                        <label asp-for="DataCadastro" class="control-label"></label>
+                        <input asp-for="DataCadastro" class="form-control" readonly />
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2 col-lg-1">
+                        <label asp-for="Ativo" class="control-label">Ativo?</label>
+                        <br />
+                        <input asp-for="Ativo" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="inProgress" id="inProgress" style="display: none;">
+</div>
+<div class="inProgress2" id="inProgress2" style="display: none;">
+    <span class="color-primary" style="font-size: 25px"><i class="fa fa-spinner fa-spin"></i></span>
+    <br />
+    <span class="color-primary">Aguarde...</span>
+</div>
+<div id="result"></div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,15 @@
+﻿@model PortalEducacional.Models.Cidade
+
+<div>
+    <input asp-for="Estado.EstadoId" type="hidden" />
+    <div class="form-group col-sm-6 col-md-4 col-lg-3">
+        <strong class="obg">*</strong>
+        <label asp-for="Estado" style="margin-top: 7px;"></label>
+        <select asp-for="Estado.EstadoId" class="form-control EstadoId" asp-items="(SelectList)ViewBag.Estado" required readonly="@(true)"></select>
+    </div>
+    <div class="form-group col-sm-6 col-md-5 col-lg-4">
+        <strong class="obg">*</strong>
+        <label asp-for="Nome" class="control-label"></label>
+        <select asp-for="CidadeId" class="form-control CidadeId" asp-items="(SelectList)ViewBag.Cidade" required readonly="@(true)"></select>
+    </div>
+</div>

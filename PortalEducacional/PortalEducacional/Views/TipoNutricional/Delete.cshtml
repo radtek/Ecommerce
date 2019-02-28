@@ -1,0 +1,51 @@
+﻿@model PortalEducacional.Models.TipoNutricional
+@{
+    ViewData["Title"] = "Deletar";
+}
+<hr />
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-cutlery"></i> Deletar Produto</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Produto</a></li>
+            <li><a href="#" class="color-primary">Deletar Produto</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <form asp-action="Delete">
+            <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+                <input type="hidden" asp-for="TipoNutricionalID" />
+                <a asp-action="Index" class="btn btn-default">Cancelar</a>
+                <input type="submit" value="Deletar" class="btn btn-danger" id="btnSalvar" />
+            </div>
+            <div class="fix"></div>
+            <div class="divisor">
+                <div class="divdentor"></div>
+            </div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UnidadeMedida)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UnidadeMedida)
+                </dd>
+            </dl>
+
+        </form>
+    </div>
+</div>
+<div class="inProgress" id="inProgress" style="display: none;">
+</div>
+<div class="inProgress2" id="inProgress2" style="display: none;">
+    <span class="color-primary" style="font-size: 25px"><i class="fa fa-spinner fa-spin"></i></span>
+    <br />
+    <span class="color-primary">Aguarde...</span>
+</div>
+<div id="result"></div>

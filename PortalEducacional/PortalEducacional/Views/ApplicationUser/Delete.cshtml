@@ -1,0 +1,86 @@
+﻿@model PortalEducacional.Models.ApplicationUser
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-user-times"></i> Deletar Usuário</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Segurança</a></li>
+            <li><a href="#" class="color-primary">Deletar Usuário</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <form asp-action="Delete">
+            <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+                <input type="hidden" asp-for="Id" />
+
+                <a asp-action="Index" class="btn btn-default">Cancelar</a>
+                <input type="submit" value="Deletar" class="btn btn-danger" id="btnSalvar" />
+            </div>
+            <div class="fix"></div>
+            <div class="divisor">
+                <div class="divdentor"></div>
+            </div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Ativo)
+                </dt>
+                <dd>
+                    @if (Model.Ativo)
+                    {
+                        @Html.DisplayName("ATIVO")
+                    }
+                    else
+                    {
+                        @Html.DisplayName("INATIVO")
+                    }
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Escola)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Escola.CNPJ)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+            </dl>
+            <div style="display: none">
+                @if (Model.ListaPermissoes != null)
+                {
+                    var i = 0;
+                    foreach (var item in Model.ListaPermissoes.OrderBy(x => x.Menu))
+                    {
+                        <tr>
+                            <input type="hidden" name="@($"ListaPermissoes[{i}].UsuarioPermissoesID")" value="@item.UsuarioPermissoesID" />
+                            <input type="hidden" name="@($"ListaPermissoes[{i}].Menu")" value="@item.Menu" />
+                            <input type="hidden" id="@($"tela{i}")" name="@($"ListaPermissoes[{i}].Controller")" value="@item.Controller" />
+                            <input type="hidden" name="@($"ListaPermissoes[{i}].DescricaoTela")" value="@item.DescricaoTela" />
+                            <input type="hidden" id="@($"status{i}")" name="@($"ListaPermissoes[{i}].Status")" value="@item.Status" />
+                        </tr>
+                        i++;
+                    }
+                }
+            </div>
+        </form>
+    </div>
+</div>
+<div class="inProgress" id="inProgress" style="display: none;">
+</div>
+<div class="inProgress2" id="inProgress2" style="display: none;">
+    <span class="color-primary" style="font-size: 25px"><i class="fa fa-spinner fa-spin"></i></span>
+    <br />
+    <span class="color-primary">Aguarde...</span>
+</div>
+<div id="result"></div>

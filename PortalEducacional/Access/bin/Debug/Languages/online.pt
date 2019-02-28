@@ -1,0 +1,32 @@
+[LanguageOptions]
+FontName=MS Sans Serif
+FontSize=8
+FontCharSet=1
+LCDFontSize=9
+
+[MSGResource]
+sSelectFingerToRegister  =Favor selecionar o dedo
+sFingerprintQualityIsPoor= Qualidade ruim!\r\nRegistros a fezer:
+sPressFinger = Coloque o dedo\r\nRegistros a fazer:
+sRegisterSuccess = Registro efetuado com sucesso
+sRegisterfailed  = Falha ao efetuar o registro
+sDeleteFingerprint = Apagar a impressão digital selecionada?
+sNotInstallDriver = Instale o driver do sensor
+sNotConnectSensor = Sem conexão com o sensor
+sInitializationfailed = Falha ao iniciar o sensor
+sCancelFingerprintChanged = Dados de imp. digital alterados, salvar?
+sSelectFingerToVerify  = Coloque o dedo
+sVerFingerprintQualityIsPoor = Qualidade ruim!
+sFeatureOk = Sucesso ao selecionar módulo de imp. digital
+sImageReceivedOK = Sucesso ao receber imp. digital
+sFingerVerifing = Verificando imp. digital
+sVerifySucceed = Sucesso ao verificar imp. digital
+sVerifyFailed = Falha ao verificar imp. digital
+sRegisterTitle = Registro de impressão digital
+sVerifyTitle   = Verificação de impressão digital
+sBtnOK=OK
+sBtnCancel=Cancela
+sFPDataErr=Erro ao registrar imp. digital!
+sOverTime=Período de avaliação expirado!
+sDuressCheck=Imp. digital de coação
+sNoLic=No 10.0 Algoritmo

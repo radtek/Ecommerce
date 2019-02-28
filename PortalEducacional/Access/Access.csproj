@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{AFD8B0F4-063E-4392-9AC1-A8F14ACA7765}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>Access</AssemblyName>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ZK.Access.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.ADOX">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\Interop.ADOX.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.JRO">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\Interop.JRO.dll</HintPath>
+    </Reference>
+    <Reference Include="BLL">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.zkemkeeper, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Programas\EPTA\SoapAdmin3.5\Interop.zkemkeeper.dll</HintPath>
+    </Reference>
+    <Reference Include="Model">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\Model.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v14.1">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\DevExpress.XtraGrid.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\System.Management\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Framework">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ConfigManager">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\ConfigManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Utils">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v14.1">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\DevExpress.Xpo.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v14.1">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\DevExpress.XtraEditors.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v14.1">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\DevExpress.Utils.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v14.1.Core">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\DevExpress.Printing.v14.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v14.1">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\DevExpress.Data.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="IDAL">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\IDAL.dll</HintPath>
+    </Reference>
+    <Reference Include="MachinesManager">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\MachinesManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.zkonline">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\Interop.zkonline.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlDbDAL">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\SqlDbDAL.dll</HintPath>
+    </Reference>
+    <Reference Include="OleDbDAL">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\OleDbDAL.dll</HintPath>
+    </Reference>
+    <Reference Include="DBUtility">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\DBUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="ZKTimeNet.AccessDataSync">
+      <HintPath>D:\Programas\EPTA\SoapAdmin3.5\ZKTimeNet.AccessDataSync.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZK.Access.data\DataConfig.cs" />
+    <Compile Include="ZK.Access.data\DataSourceColumnsSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.data\DataType.cs" />
+    <Compile Include="ZK.Access.data\DataView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.data\ImportColumnSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.data\ImportDataHelper.cs" />
+    <Compile Include="ZK.Access.data\ImportDataSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.data\RestoreAccessDbSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.data\ShowProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.device\DeviceToPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.device\GlobalMonitor.cs" />
+    <Compile Include="ZK.Access.device\IDeviceMonitor.cs" />
+    <Compile Include="ZK.Access.device\MonitorWatchdog.cs" />
+    <Compile Include="ZK.Access.device\OnOfflineLogEventArgs.cs" />
+    <Compile Include="ZK.Access.device\PCToDeviceEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.device\PCToUDisk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.device\PullDeviceMonitor.cs" />
+    <Compile Include="ZK.Access.device\RTEventProcessor.cs" />
+    <Compile Include="ZK.Access.device\StdDeviceMonitor.cs" />
+    <Compile Include="ZK.Access.device\UDiskToPc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\AntiEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\AuxiliaryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\AuxInOutControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\ClearEventOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\CloseDoorSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\CustomReportEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\CustomReportList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\CustomReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\DoorUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\FirstOpenEidt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\HolidaysEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\InterlockEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\LevelUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\LinkageEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\MapControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\MapEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\MapFullScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\MapUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\MonitorLog_Contact.cs" />
+    <Compile Include="ZK.Access.door\MultiCardOpenGroupEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\MultiCardOpenGroupSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\MultiCardOpenSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\OpenDoorWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\PhotoShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\ReaderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\ReaderEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\STD_WiegandSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\TimeHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\TimeSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.door\UrgentPwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.mensage\Mensage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.personnel\FPRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.personnel\PersonnelSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.personnel\SelectedMultiPersonnelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.Properties\Resources.cs" />
+    <Compile Include="ZK.Access.Properties\Settings.cs" />
+    <Compile Include="ZK.Access.system\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.system\UserAreaManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.system\UserDeptManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.system\UserEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access.system\ZKImage.cs" />
+    <Compile Include="ZK.Access\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\AboutForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\Access.cs" />
+    <Compile Include="ZK.Access\AccessSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\AddAreaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\AddCustomizeDeviceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\AddDept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\AddDeviceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\AddIssueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\AddLevelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\AdjustDeptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\AntiUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\AreaSettingUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\AreaTreeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\BatchAddPersonnelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\BatchIssueCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\CboAreaTreeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\CboDeptTreeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\ChangeFPThresholdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\CloseAuxiliaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\CommandServer.cs" />
+    <Compile Include="ZK.Access\DatabaseUpdate.cs" />
+    <Compile Include="ZK.Access\DataConfigSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DataHelper.cs" />
+    <Compile Include="ZK.Access\DataPackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DepartmentForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DeptSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DevControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DevExpressHelper.cs" />
+    <Compile Include="ZK.Access\DeviceHelper.cs" />
+    <Compile Include="ZK.Access\DeviceHelperEx.cs" />
+    <Compile Include="ZK.Access\DeviceManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DeviceSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DeviceServers.cs" />
+    <Compile Include="ZK.Access\DeviceTreeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DeviceUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DevLogServer.cs" />
+    <Compile Include="ZK.Access\DevMapControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DevShowInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DLD.cs" />
+    <Compile Include="ZK.Access\DoorNormalFormSeting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DoorSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\doorSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DoorState.cs" />
+    <Compile Include="ZK.Access\DownLoadRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DSTUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\DuressPWForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\EncDec.cs" />
+    <Compile Include="ZK.Access\FingerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\FrmModuleRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\FrmOptionalModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\FrmPictureCapture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\FrmRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\FrmShowHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\FrmShowUpdata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\FrmSimpleProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\FrmYesNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\GLOBAL.cs" />
+    <Compile Include="ZK.Access\HolidaysUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\ImagesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\InitDatabaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\InterlockUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\IssueCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\IssueCardUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\LevelUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\LinkageUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\LoginHelper.cs" />
+    <Compile Include="ZK.Access\LogsInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\MainForm_BAK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\ModifyBaudrateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\ModifyComPwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\ModifyIPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\ModifyPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\MonitoringUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\MonitorThread.cs" />
+    <Compile Include="ZK.Access\MultiCardOpenUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\NavigationUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\NormalOpenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\NormalOpenUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\OpenDoorSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\OperationLog.cs" />
+    <Compile Include="ZK.Access\OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\PalmControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\Palms.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\PCToDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\PersonnelForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\PersonnelManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\Program.cs" />
+    <Compile Include="ZK.Access\PullSDKDataConvert.cs" />
+    <Compile Include="ZK.Access\PullSDKDataConvertHelper.cs" />
+    <Compile Include="ZK.Access\ReportSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\ReportsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\ReportsUserControlAll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\Resource.cs" />
+    <Compile Include="ZK.Access\ResourceIPC.cs" />
+    <Compile Include="ZK.Access\RoleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\RoleUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\RS485UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\SearchAccessForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\SearchAreaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\SelectedPersonnelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\SetParameterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\SettingDepartmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\SqlServerSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\TimeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\TimeInfo.cs" />
+    <Compile Include="ZK.Access\TimeInfoModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\TimeSlotUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\UpgradeFirmvareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\UserControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\UserMainControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\Visitor2Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\Visitor2ManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\VisitorManag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\WiegandSeting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\wiegand_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZK.Access\WindowsRegistry.cs" />
+    <Compile Include="ZK.Access\XtraEditors_CN.cs" />
+    <Compile Include="ZK.Access\XtraGrid_CN.cs" />
+    <Compile Include="ZK.Access\XtraPrinting_CN.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Access.exe.licenses" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="ZK.Access.personnel\SelectedMultiPersonnelForm.resx">
+      <DependentUpon>SelectedMultiPersonnelForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

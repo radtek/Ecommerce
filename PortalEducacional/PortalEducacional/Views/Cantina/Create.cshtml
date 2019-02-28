@@ -1,0 +1,194 @@
+﻿@model PortalEducacional.Models.ViewModel.CantinaViewModel
+@{
+    ViewData["Title"] = "Epta Educação";
+    Layout = "_Cantina";
+}
+
+<div class="ibox-content">
+    <div class="block-clean">
+        <form asp-action="Create">
+            <input type="hidden" asp-for="Aluno.AlunoID" />
+            <input type="hidden" asp-for="Funcionario.FuncionarioID" />
+            <div class="row">
+                <div class="col-sm-10 col-md-8 col-lg-9">
+                    @if (Model != null)
+                    {
+                        @if (Model.Aluno != null)
+                        {
+                            <label class="control-label">Cliente: @Model.Aluno.Nome.ToUpper()</label>
+                        }
+                        else if (Model.Funcionario != null)
+                        {
+                            <label class="control-label">Cliente: @Model.Funcionario.Nome.ToUpper()</label>
+                        }
+                        else
+                        {
+                            <label class="control-label">Cliente: CONSUMIDOR</label>
+                        }
+                    }
+                    else
+                    {
+                        <label class="control-label">Cliente: CONSUMIDOR</label>
+                    }
+                </div>
+                <div class="col-sm-2 col-md-4 col-lg-3">
+                    @if (Model.Aluno != null)
+                    {
+                        <label class="control-label" asp-for="Aluno.SaldoDisponivel">Saldo Atual: R$ @Model.Aluno.SaldoDisponivel</label>
+                    }
+                    else
+                    {
+                        <label class="control-label">Saldo Atual: R$ 0,00</label>
+                    }
+                </div>
+                <div class="fix"></div>
+                <div class="divisor">
+                    <div class="divdentor"></div>
+                </div>
+                <br />
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    @if (Model.Aluno != null)
+                    {
+                        @if (Model.Aluno.Foto != null)
+                        {
+                            <img src="@String.Format("data:image/jpg;base64,{0}", Model.Imagem)" class="imagem-usuario" />
+                        }
+                        else
+                        {
+                            <img src="~/images/Cantina/img-user.jpg" alt="Cliente" class="imagem-usuario" />
+                        }
+                    }
+                    else
+                    {
+                        <img src="~/images/Cantina/img-user.jpg" alt="Cliente" class="imagem-usuario" />
+                    }
+                </div>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <h5 class="headwi primary" style="margin-top: -1px;">CATEGORIAS</h5>
+
+                    <div class="categoria-produtos" id="listaCategoria">
+                        @if (Model != null)
+                        {
+                            @if (Model.Categorias != null)
+                            {
+                                @foreach (var item in Model.Categorias)
+                                {
+                                    <div class="icone-categoria">
+                                        <img src="~/images/Cantina/icone-lanche.png" />
+                                        <label class="control-label text-center" onclick="VerificaPorCategoria(this);">@item.Descricao</label>
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="fix"></div>
+                <br />
+                <div class="divisor">
+                    <div class="divdentor"></div>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-7">
+                    <br />
+                    <h5 class="headwi primary" style="margin-top: -1px;">PRODUTOS</h5>
+                    <label class="control-label">Código de Barras</label>
+                    <input class="form-control" id="CodigoBarras" placeholder="Informe o código de barras para busca do produto" onblur="VerificaCodigoBarras(this);" />
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-5">
+                    <h5 class="headwi danger" style="margin-top: 15px">FORMA DE RECEBIMENTO</h5>
+                    <select class="form-control" id="formaPagemento" asp-for="Pedido.FormaRecebimento" style="margin-top: 28px;">
+                        <option value="credito">Crédito Aluno</option>
+                        <option value="dinheiro">Dinheiro</option>
+                    </select>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-7">
+                    <br /><br />
+                    <div class="lista-produtos" id="listaProdutos">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-7 col-lg-5">
+                    <br /><br />
+                    <div class="produtos-adicionados">
+                        <div class="row" style="margin-right: 6px !important; margin-left: 6px !important">
+                            <h5 class="headwi primary">Lista de Produtos</h5>
+                            <div class="form-horizontal group-border-dashed">
+                                <table id="produtosCantina-table" class="table hover table-noborder">
+                                    <thead>
+                                        <tr>
+                                            <th>Ação</th>
+                                            <th>Produto</th>
+                                            <th>Qtde</th>
+                                            <th>Valor</th>
+                                            <th>SubTotal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-produtos"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="totais">
+                        <div class="divValores">
+                            <label class="totais-label">Total de Itens:</label><label class="valores-totais" id="totalItens">0,00</label>
+                        </div>
+                        <div class="divValores">
+                            <label class="totais-label">Descontos:</label><label class="valores-totais" id="descontos">0,00</label>
+                        </div>
+                        <div class="divValorTotal">
+                            <label class="totalPagar">Total a Pagar:</label><label class="valores-totais" id="totalPagar">0,00</label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-5 col-lg-12">
+                        <div class="col-sm-12 col-md-12 col-lg-12 btn-cantina center">
+                            <input class="btn btn-success" value="Finalizar Compra" type="submit" id="btnSalvar" />
+                            <a class="btn btn-danger" asp-action="Index"> Cancelar Compra</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@*MODAL RECEBIMENTO*@
+@*<div class="modal fade" tabindex="-1" id="modalRecebimento" data-keyboard="false" data-backdrop="false">
+        <form asp-action="SalvarSangria">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header-success">
+                        <button type="button" class="close" data-dismiss="modal">
+                            ×
+                        </button>
+                        <h4 class="modal-title">Finalização do Pedido</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-sm-12 col-md-4 col-lg-2">
+                            <label>Valor R$</label>
+                            <input asp-for="SangriaCaixa.Valor" class="form-control monetario" placeholder="R$" id="valorSangria" />
+                        </div>
+                        <div class="col-sm-12 col-md-8 col-lg-10">
+                            <label>Motivo</label>
+                            <input asp-for="SangriaCaixa.Motivo" class="form-control" id="motivoSangria" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <br /><br /><br />
+                        <a class="btn btn-default" value="Cancelar" onclick="OpenModalRecebimento(false, '');">Cancelar</a>
+                        <input type="submit" class="btn btn-success"  value="FINALIZAR COMPRA" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>*@
+
+
+<div class="inProgress" id="inProgress" style="display: none;">
+</div>
+<div class="inProgress2" id="inProgress2" style="display: none;">
+    <span class="color-primary" style="font-size: 25px"><i class="fa fa-spinner fa-spin"></i></span>
+    <br />
+    <span class="color-primary">Aguarde...</span>
+</div>
+<div id="result"></div>

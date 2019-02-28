@@ -1,0 +1,20 @@
+<root>
+  <add name="systemName" value="" />
+  <add name="Language" value="chs" />
+  <add name="IsOpenListen" value="yes" />
+  <add name="password" value="admin" />
+  <add name="IsListen" value="true" />
+  <add name="data" value="sqlserver" />
+  <add name="ConnectionString" value="Data Source=192.168.10.100\sqlexpress;Database=ECardTong;Integrated Security=false;Password=skinhr;User ID=sa;" />
+  <add name="SoftVersion" value="" />
+  <add name="SDKVersion" value="" />
+  <add name="PropertyInCopyright" value="本软件版权属***所有" />
+  <add name="TheadListenDevCount" value="2" />
+  <add name="ReMonitorTime" value="2" />
+  <add name="AlarmFilePath" value="D:\ZKsoftware\trunk_access\zkaccess3.5.2.1127\Release\sound\alarm.mid" />
+  <add name="BakDBPath" value="D:\bak_db" />
+  <add name="IsBackDB" value="0" />
+  <add name="IsRestoreDB" value="0" />
+  <add name="RestoreDBPath" value="D:\bak_db\Access2012073013360.mdb" />
+  <add name="TimeDownload" value="09:26" />
+</root>

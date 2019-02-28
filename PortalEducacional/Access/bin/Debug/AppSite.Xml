@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <add name="systemName" value="" />
+  <add name="Language" value="chs" />
+  <add name="data" value="Access" />
+  <add name="ConnectionString" value="Provider = Microsoft.Jet.OleDb.4.0;Persist Security Info=true;Jet OLEDB:Database Password=pwd; Data Source =D:\Programas\EPTA\Access\bin\Debug\access.mdb" />
+</root>

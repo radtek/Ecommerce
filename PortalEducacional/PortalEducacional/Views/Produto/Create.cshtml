@@ -1,0 +1,224 @@
+﻿@model PortalEducacional.Models.Produto
+@{
+    ViewData["Title"] = "Novo";
+}
+<hr />
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-cutlery"></i> Cadastro de Produto</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Produto</a></li>
+            <li><a href="#" class="color-primary">Cadastro de Produto</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <form asp-action="Create">
+            <input type="hidden" asp-for="PrecisaAprovacao" value="true" />
+            <div class="col-sm-12 col-col-md-12 col-lg-12 no-padding right top">
+                <a asp-action="Index" class="btn btn-default">Cancelar</a>
+                <input type="submit" value=" Salvar" class="btn btn-success" id="btnSalvar" />
+            </div>
+            <div class="fix"></div>
+            <div class="divisor">
+                <div class="divdentor"></div>
+            </div>
+            <div class="row">
+                <h5 class="headwi primary">Identificação de Produto</h5>
+
+                <div class="form-horizontal group-border-dashed">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group col-sm-6 col-md-5 col-lg-5">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Escola" class="control-label"></label>
+                        <select asp-for="EscolaID" class="form-control" asp-items="(SelectList)ViewBag.Escola"></select>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-5 col-lg-3">
+                        <label class="control-label">Replicar em todas as Escolas?</label>
+                        <br />
+                        <input asp-for="Replicar" type="checkbox" data-toggle="toggle" data-on="Sim" data-off="Não" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                    <div class="fix"></div>
+
+                    <div class="form-group col-sm-5 col-md-3 col-lg-2">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Codigo" class="control-label"></label>
+                        <input asp-for="Codigo" class="form-control" />
+                        <span asp-validation-for="Codigo" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-5 col-md-5 col-lg-5">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Descricao" class="control-label"></label>
+                        <input asp-for="Descricao" class="form-control" />
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-2 col-md-3 col-lg-2">
+                        <strong class="obg">*</strong>
+                        <label asp-for="Valor" class="control-label"></label>
+                        <input asp-for="Valor" class="form-control monetario" placeholder="R$" />
+                        <span asp-validation-for="Valor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label class="control-label" asp-for="Categoria.Descricao"></label>
+                        <select class="form-control" asp-items="ViewBag.Categoria" name="CategoriaID">
+                            <option selected value="--">-- Selecione uma Categoria --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-sm-6 col-md-6 col-lg-4">
+                        <label class="control-label ">Código de Barras</label>
+                        <input asp-for="CodigoBarras" class="form-control" />
+                    </div>
+                    <div class="form-group col-sm-6 col-md-5 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label asp-for="UnidadeMedida" class="control-label"></label>
+                        <select asp-for="UnidadeMedida" class="form-control">
+                            <option value="AMPOLA">AMPOLA</option>
+                            <option value="BALDE">BANDEJA</option>
+                            <option value="BANDEJA">BANDEJA</option>
+                            <option value="BARRA">BARRA</option>
+                            <option value="BISNAG">BISNAG</option>
+                            <option value="BLOCO">BLOCO</option>
+                            <option value="BOBINA">BOBINA</option>
+                            <option value="BOMB">BOMB</option>
+                            <option value="CAPS">CAPS</option>
+                            <option value="CART">CART</option>
+                            <option value="CENTO">CENTO</option>
+                            <option value="CJ">CJ</option>
+                            <option value="CM">CM</option>
+                            <option value="CM2">CM2</option>
+                            <option value="CX">CX</option>
+                            <option value="DUZIA">DUZIA</option>
+                            <option value="EMBAL">EMBAL</option>
+                            <option value="FARDO">FARDO</option>
+                            <option value="FOLHA">FOLHA</option>
+                            <option value="FRASCO">FRASCO</option>
+                            <option value="GALAO">GALAO</option>
+                            <option value="GF">GF</option>
+                            <option value="GRAMAS">GRAMAS</option>
+                            <option value="JOGO">JOGOS</option>
+                            <option value="KG">KG</option>
+                            <option value="KIT">KIT</option>
+                            <option value="LATA">LATA</option>
+                            <option value="LITRO">LITRO</option>
+                            <option value="M">M</option>
+                            <option value="M2">M2</option>
+                            <option value="M3">M3</option>
+                            <option value="MILHEI">MILHEI</option>
+                            <option value="ML">ML</option>
+                            <option value="PACOTE">PACOTE</option>
+                            <option value="PALETE">PALETE</option>
+                            <option value="PARES">PARES</option>
+                            <option value="PC">PC</option>
+                            <option value="POTE">POTE</option>
+                            <option value="ROLO">ROLO</option>
+                            <option value="SACO">SACO</option>
+                            <option value="SACOLA">SACOLA</option>
+                            <option value="TAMBOR">TAMBOR</option>
+                            <option value="TANQUE">TANQUE</option>
+                            <option value="TON">TON</option>
+                            <option value="TUBO">TUBO</option>
+                            <option value="UN" selected>UN</option>
+                            <option value="UNID">UNID</option>
+                            <option value="VASIL">VASIL</option>
+                            <option value="VIDRO">VISDRO</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-3 col-md-3 col-lg-2">
+                        <label class="control-label ">Data de Criação</label>
+                        <input asp-for="DataCadastro" class="form-control" readonly />
+                        <span asp-validation-for="DataCadastro" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-1 col-md-1 col-lg-1">
+                        <label asp-for="Ativo" class="control-label">Ativo?</label>
+                        <br />
+                        <input asp-for="Ativo" type="checkbox" checked data-toggle="toggle" data-on="Sim" data-off="Não" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                    <div class="fix"></div>
+                    <div class="form-group col-sm-12 col-md-12 col-lg-12">
+                        <label asp-for="Observacao"></label>
+                        <textarea asp-for="Observacao" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h5 class="headwi primary">Dados Nutricionais</h5>
+
+                <div class="form-horizontal group-border-dashed">
+
+                    <div class="form-group col-sm-3 col-md-3 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label class="control-label">Tipo Nutricional</label>
+                        <select class="form-control" asp-items="ViewBag.TipoNutricional" id="TipoNutricional">
+                            <option selected value="--">-- Selecione um Tipo --</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                        <strong class="obg">*</strong>
+                        <label class="control-label">Porção</label>
+                        <input class="form-control onlyNumber" id="Porcao" />
+                    </div>
+                    <div class="form-group col-sm-3 col-md-3 col-lg-3">
+                        <strong class="obg">*</strong>
+                        <label class="control-label">Valor Diário</label>
+                        <input class="form-control onlyNumber" id="ValorDiario" />
+                    </div>
+                    <div class="form-group col-sm-1 col-md-1 col-lg-1">
+                        <br />
+                        <a class="btn btn-info btn-trans" style="margin-top:7px" name="btnAdd" id="btnAdd"><i class="fa fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="fix"></div>
+                <div class="col-sm-8 col-md-8 col-lg-8 magin-10px ">
+                    <table id="tbNutricao" class="table hover table-noborder">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Tipo</th>
+                                <th>Porção</th>
+                                <th>Valor Diário</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ var i = 0;}
+                            @if (@Model != null)
+                            {
+                                @foreach (var item in Model.DadosNutricionais)
+                                {
+                                    <tr id="@($"LinhaTR{i}")">
+                                        <input type="hidden" name="@($"DadosNutricionais[{i}].ValorDiario")" value="@item.ValorDiario" />
+                                        <input type="hidden" name="@($"DadosNutricionais[{i}].TipoNutricionalID")" value="@item.TipoNutricionalID" />
+                                        <input id="@($"Deletado{i}")" type="hidden" name="@($"DadosNutricionais[{i}].Deletado")" value="false" />
+                                        <td><a class="btn btn-danger btn-trans btn-xs" onclick="remove(this)"><i class="fa fa-remove"></i></a></td>
+                                        <td>@item.TipoNutricional.Nome</td>
+                                        <td>@item.Porcao</td>
+                                        <td>@item.ValorDiario</td>
+                                    </tr>
+                                    <input type="hidden" name="@($"DadosNutricionais[{i}].Porcao")" value="@item.Porcao" />
+                                    i++;
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="inProgress" id="inProgress" style="display: none;">
+</div>
+<div class="inProgress2" id="inProgress2" style="display: none;">
+    <span class="color-primary" style="font-size: 25px"><i class="fa fa-spinner fa-spin"></i></span>
+    <br />
+    <span class="color-primary">Aguarde...</span>
+</div>
+<div id="result"></div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

@@ -1,0 +1,32 @@
+[LanguageOptions]
+FontName=MS Sans Serif
+FontSize=11
+FontCharSet=1
+LCDFontSize=9
+
+[MSGResource]
+sSelectFingerToRegister  = Seleccione la huella
+sFingerprintQualityIsPoor= Mala calidad!\r\nFaltan:
+sPressFinger = Presione la huella 3 veces\r\nFaltan:
+sRegisterSuccess = Registro de huella exitoso.
+sRegisterfailed  = Registro de huella fallido.
+sDeleteFingerprint = ¿Eliminar las huellas seleccionadas?
+sNotInstallDriver = Instale el driver del lector USB.
+sNotConnectSensor = No hay conexión con el lector.
+sInitializationfailed = Error al inicializar el lector.
+sCancelFingerprintChanged = Ha cambiado la informacion de las huellas. ¿Desea guardar los cambios?
+sSelectFingerToVerify  = Presione la huella
+sVerFingerprintQualityIsPoor = La calidad de la huella es muy baja!
+sFeatureOk = Seleccion de modulo de huella exitoso
+sImageReceivedOK = Registro de huella exitoso.
+sFingerVerifing = Verificando huella
+sVerifySucceed = Verificacion de huella exitoso.
+sVerifyFailed = Verificacion de huella fallido.
+sRegisterTitle = Registro de huella
+sVerifyTitle   = Verificacion de huella
+sBtnOK=OK
+sBtnCancel=Cancelar
+sFPDataErr=Error de registro de huellas!
+sOverTime=Periodo de prueba expirado.
+sDuressCheck=Huella de Amago
+sNoLic=Sin licencia de algoritmo v10.0

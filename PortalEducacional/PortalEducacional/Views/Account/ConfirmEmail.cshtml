@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Confirme seu E-mail";
+}
+
+<div class="ibox-content">
+    <div class="page-head">
+        <h2><i class="fa fa-envelope"></i> Confirmação de E-mail</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Configurações</a></li>
+            <li><a href="#" class="color-primary">Confirmação de E-mail</a></li>
+        </ol>
+    </div>
+    <div class="block-clean">
+        <div class="alert alert-success text-center">
+            <div style="font-size: 23px; text-transform: uppercase; font-weight: 700;">Parabéns!</div>
+        </div>
+        <div class="text-center">
+            <p style="font-size: 15px"><br /> Seu e-mail confirmado com <b style="color:seagreen">SUCESSO!</b><br /><br /> Para acessar o sistema clique no botão abaixo.</p>
+            <i class="em em-point_down"></i><i class="em em-point_down"></i>
+        </div>
+        <div class="col-sm-12 col-col-md-12 col-lg-12 center" style="margin-top: 25px;">
+            <a asp-controller="Account" asp-action="Login" class="btn btn-trans btn-info">Acessar Sistema</a>
+        </div>
+    </div>
+</div>

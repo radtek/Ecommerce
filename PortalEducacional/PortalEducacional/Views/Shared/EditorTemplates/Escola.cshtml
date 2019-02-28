@@ -1,0 +1,11 @@
+﻿@model PortalEducacional.Models.Escola
+<div>
+    <div class="form-group col-sm-12 col-md-12 col-lg-4 has-feedback" style="margin-top: 7px;">
+        <strong class="obg">*</strong>
+        <label>Escola</label>
+        <input asp-for="Nome" id="Escola" class="form-control" placeholder="Informe CNPJ ou Nome da Escola para busca" />
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+    </div>
+        <input asp-for="EscolaID" type="hidden" />
+    <div class="fix"></div>
+</div>
